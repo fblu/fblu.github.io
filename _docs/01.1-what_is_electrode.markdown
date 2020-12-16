@@ -41,6 +41,7 @@ two powerful tools:
 **Start using [Electrode Explorer](electrode_explorer.html) and [Electrify](electrify.html) in your existing applications.**
 
 ##Features
+
 [Electrode Boilerplate](https://github.com/electrode-io/electrode#boilerplate-universal-react-node) comes fully loaded with the best technologies available:
 
 *  <a href="https://facebook.github.io/react/index.html" target="_blank">React</a> - an awesome JavaScript library for building user interfaces, created by Facebook.
