@@ -40,7 +40,7 @@ two powerful tools:
 
 **Start using [Electrode Explorer](electrode_explorer.html) and [Electrify](electrify.html) in your existing applications.**
 
-##Features
+## Features
 
 [Electrode Boilerplate](https://github.com/electrode-io/electrode#boilerplate-universal-react-node) comes fully loaded with the best technologies available:
 
