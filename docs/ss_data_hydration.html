@@ -2102,48 +2102,62 @@
     <h1>Server Side Data Hydration</h1>
     <div class="subHeader"></div>
 
-    <p>Server side rendering consists of two steps: creating the initial redux store data and calling <code>ReactDOM.renderToString</code> with that data.
-Server side data hydration refers the redux initial store data that was used for <code>ReactDom.renderToString</code> being passed to the browser so react can use the same data to bootstrap rendering on the client side. This helps the client side avoid making additional calls to the server to retrieve data for rendering.</p>
-<h3><a class="anchor" name="server-side-rendering-modes"></a>Server Side Rendering modes <a class="hash-link" href="#server-side-rendering-modes">#</a></h3>
-<p>Although Electrode provides server side rendering by default, it provides modes where it can be turned off by passing an argument as a part of the URI.</p>
-<h4><a class="anchor" name="1.-no-server-side-renderingnoss"></a>1. No Server Side Rendering(noss): <a class="hash-link" href="#1.-no-server-side-renderingnoss">#</a></h4>
-<p>This mode completely disables any rendering of html and server side data hydration. A typical use of this mode would be when the server load is high.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>https://localhost:3000?__mode=noss
-</code></pre></div><h4><a class="anchor" name="2.-server-side-data-only-datass"></a>2. Server Side Data Only (datass): <a class="hash-link" href="#2.-server-side-data-only-datass">#</a></h4>
-<p>This mode provides server side data hydration only but does not provide any server rendered content. The benefit here would be that we are able to cut down on using server resources but are also able to provide data to the client.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>https://localhost:3000?__mode=datass
-</code></pre></div><h3><a class="anchor" name="testing"></a>Testing <a class="hash-link" href="#testing">#</a></h3>
-<p>To verify that the mode is working correctly and server side rendering is turned off, once you open the app in your browser, view page source and check if the div <code>(.js-content)</code> is empty.
-If you used the <code>datass</code> mode, then you should still be able to see the initialized redux store.</p>
-<h3><a class="anchor" name="auto-server-side-data-hydration"></a>Auto Server Side Data Hydration <a class="hash-link" href="#auto-server-side-data-hydration">#</a></h3>
+    <p>Server side rendering consists of two steps: creating the initial redux store data and calling <code class="language-plaintext highlighter-rouge">ReactDOM.renderToString</code> with that data.
+Server side data hydration refers the redux initial store data that was used for <code class="language-plaintext highlighter-rouge">ReactDom.renderToString</code> being passed to the browser so react can use the same data to bootstrap rendering on the client side. This helps the client side avoid making additional calls to the server to retrieve data for rendering.</p>
+
+<h3 id="server-side-rendering-modes">Server Side Rendering modes</h3>
+<p>Although Electrode provides server side rendering by default, it provides modes where it can be turned off by passing an argument as a part of the URI.
+####1. No Server Side Rendering(noss):
+This mode completely disables any rendering of html and server side data hydration. A typical use of this mode would be when the server load is high.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://localhost:3000?__mode=noss
+</code></pre></div></div>
+
+<p>####2. Server Side Data Only (datass):
+This mode provides server side data hydration only but does not provide any server rendered content. The benefit here would be that we are able to cut down on using server resources but are also able to provide data to the client.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://localhost:3000?__mode=datass
+</code></pre></div></div>
+<h3 id="testing">Testing</h3>
+<p>To verify that the mode is working correctly and server side rendering is turned off, once you open the app in your browser, view page source and check if the div <code class="language-plaintext highlighter-rouge">(.js-content)</code> is empty.
+If you used the <code class="language-plaintext highlighter-rouge">datass</code> mode, then you should still be able to see the initialized redux store.</p>
+
+<h3 id="auto-server-side-data-hydration">Auto Server Side Data Hydration</h3>
 <p>As much as Electrode believes in the benefits of server side rendering, it is also aware of its side effects. Electrode is constantly monitoring the performance of your app and will turn of server side rendering if app performance is degrading.
 The following files in your server are responsible for this optimization and can be customized based on the needs of your application:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>server/conditions/
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server/conditions/
 ├── machine-info.js
 ├── machine-load.js
 ├── response-time.js
 └── server-load.js
-</code></pre></div>
-<p>As indicated by the file names, we are monitoring the machine load, the server load and the response times of the app. In each file, we define default thresholds that we feel indicate a high load or long enough response time to make a decision that the server is overworked and server side rendering should now be disabled.</p>
-<h4><a class="anchor" name="machine-load.js"></a>machine-load.js <a class="hash-link" href="#machine-load.js">#</a></h4>
-<p>We define two thresholds: <code>DEFAULT_LOAD_THRESHOLD = 4</code> and the <code>DEFAULT_MEM_THRESHOLD = 0.8</code>.
+
+</code></pre></div></div>
+
+<p>As indicated by the file names, we are monitoring the machine load, the server load and the response times of the app. In each file, we define default thresholds that we feel indicate a high load or long enough response time to make a decision that the server is overworked and server side rendering should now be disabled.
+####machine-load.js
+We define two thresholds: <code class="language-plaintext highlighter-rouge">DEFAULT_LOAD_THRESHOLD = 4</code> and the <code class="language-plaintext highlighter-rouge">DEFAULT_MEM_THRESHOLD = 0.8</code>.
 Electrode looks at the load averages for the last one minute and five minutes, the memory usage of the server and disables server side rendering if they are higher than the threshold. These default thresholds can be modified as per your needs or can be overridden if passed in the requests.
-More information on load averages and how a threshold can be calculated can be found <a target="_blank" href ="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">here</a>.</p>
-<h4><a class="anchor" name="response-time.js"></a>response-time.js <a class="hash-link" href="#response-time.js">#</a></h4>
-<p>The important default thresholds for measuring response time are:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>DEFAULT_LONG_RESPONSE_THRESHOLD_MS = 5000;
+More information on load averages and how a threshold can be calculated can be found <a target="_blank" href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages">here</a>.</p>
+
+<p>####response-time.js
+The important default thresholds for measuring response time are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DEFAULT_LONG_RESPONSE_THRESHOLD_MS = 5000;
 DEFAULT_LONG_RESPONSE_AMOUNT = 6;
 DEFAULT_DISABLE_EXPIRY_MINS = 2;
-</code></pre></div>
-<p>The response time is monitored per request. A response that takes over 5seconds is considered a long response. The app then notes this and checks to see if we have hit the <code>DEFAULT_LONG_RESPONSE_AMOUNT</code>.
-If we have, then server side rendering is disabled for <code>DEFAULT_DISABLE_EXPIRY_MINS</code> minutes.
+</code></pre></div></div>
+
+<p>The response time is monitored per request. A response that takes over 5seconds is considered a long response. The app then notes this and checks to see if we have hit the <code class="language-plaintext highlighter-rouge">DEFAULT_LONG_RESPONSE_AMOUNT</code>.
+If we have, then server side rendering is disabled for <code class="language-plaintext highlighter-rouge">DEFAULT_DISABLE_EXPIRY_MINS</code> minutes.
 Once the expiry time is reached, we check to see if we are no longer getting long responses and then enable server side rendering again.</p>
-<h4><a class="anchor" name="server-load.js"></a>server-load.js <a class="hash-link" href="#server-load.js">#</a></h4>
-<p>We are simply measuring the event loop delay here compare it against the threshold <code>DEFAULT_EVENTLOOP_DELAY_MS = 40</code>. If found to be higher we disable server side rendering.
+
+<p>####server-load.js
+We are simply measuring the event loop delay here compare it against the threshold <code class="language-plaintext highlighter-rouge">DEFAULT_EVENTLOOP_DELAY_MS = 40</code>. If found to be higher we disable server side rendering.
 <a href="http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html">Here</a> is a good talk on learning about event loops.</p>
 
 <blockquote>
-<p>NOTE: While generating an Electrode app using the Electrode generator via the <code>yo electrode</code> command, you will need to answer &quot;Yes&quot; to <code>Disable server side rendering based on high load?</code> in order to enable the above functionality.</p>
+  <p>NOTE: While generating an Electrode app using the Electrode generator via the <code class="language-plaintext highlighter-rouge">yo electrode</code> command, you will need to answer “Yes” to <code class="language-plaintext highlighter-rouge">Disable server side rendering based on high load?</code> in order to enable the above functionality.</p>
 </blockquote>
 
 

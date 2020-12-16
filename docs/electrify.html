@@ -2102,69 +2102,98 @@
     <h1>Electrify</h1>
     <div class="subHeader"></div>
 
-    <p><a href="https://travis-ci.org/electrode-io/electrode-electrify"><img src="https://travis-ci.org/electrode-io/electrode-electrify.svg?branch=master" alt="Build Status"></a></p>
+    <p><a href="https://travis-ci.org/electrode-io/electrode-electrify"><img src="https://travis-ci.org/electrode-io/electrode-electrify.svg?branch=master" alt="Build Status" /></a></p>
 
 <p>An Electrode Javascript bundle viewer aptly named <a href="https://github.com/electrode-io/electrify">Electrify</a>, this is a stunning visual tool for analyzing the module tree of
-<a href="https://github.com/webpack/docs/wiki/node.js-api#stats">electrode-io + webpack</a> project bundles. It&#39;s especially handy
+<a href="https://github.com/webpack/docs/wiki/node.js-api#stats">electrode-io + webpack</a> project bundles. It’s especially handy
 for catching large and/or duplicate modules which might be either bloating your
 bundle or slowing down the build process.</p>
 
-<p><img src="https://cloud.githubusercontent.com/assets/360041/18318796/ea0ddae4-74d7-11e6-89cb-08e02e4b1683.gif" alt="screencast"></p>
-<h2><a class="anchor" name="installation"></a>Installation <a class="hash-link" href="#installation">#</a></h2>
-<p>Electrify lives on <a href="https://www.npmjs.com/package/electrode-electrify">npm</a>, so if you haven&#39;t already,
+<p><img src="https://cloud.githubusercontent.com/assets/360041/18318796/ea0ddae4-74d7-11e6-89cb-08e02e4b1683.gif" alt="screencast" /></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Electrify lives on <a href="https://www.npmjs.com/package/electrode-electrify">npm</a>, so if you haven’t already,
 make sure you have <a href="http://nodejs.org/">node</a> installed on your machine first.</p>
 
 <p>Installing should then be as easy as:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ sudo npm install -g electrode-electrify
-</code></pre></div><h2><a class="anchor" name="module-electrode-electrify"></a>Module: <a href="https://github.com/electrode-io/electrode-electrify">electrode-electrify</a> <a class="hash-link" href="#module-electrode-electrify">#</a></h2><h3><a class="anchor" name="install-via-npm"></a>Install via <code>npm</code> <a class="hash-link" href="#install-via-npm">#</a></h3><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ npm install --save electrode-electrify
-</code></pre></div><h3><a class="anchor" name="example-applications"></a>Example Applications <a class="hash-link" href="#example-applications">#</a></h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>npm <span class="nb">install</span> <span class="nt">-g</span> electrode-electrify
+</code></pre></div></div>
+
+<h2 id="module-electrode-electrify">Module: <a href="https://github.com/electrode-io/electrode-electrify">electrode-electrify</a></h2>
+
+<h3 id="install-via-npm">Install via <code class="language-plaintext highlighter-rouge">npm</code></h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">--save</span> electrode-electrify
+</code></pre></div></div>
+
+<h3 id="example-applications">Example Applications</h3>
+
 <ul>
-<li><a href="https://github.com/electrode-io/electrode-boilerplate-universal-react-node#electrode-electrify">Electrode Boilerplate</a></li>
+  <li><a href="https://github.com/electrode-io/electrode-boilerplate-universal-react-node#electrode-electrify">Electrode Boilerplate</a></li>
 </ul>
-<h2><a class="anchor" name="usage"></a>Usage <a class="hash-link" href="#usage">#</a></h2><h2><a class="anchor" name="command-line-interface"></a>Command-Line Interface <a class="hash-link" href="#command-line-interface">#</a></h2><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>electrify <span class="o">[</span>stats-bundle<span class="o">(</span>s<span class="o">)</span>...<span class="o">]</span> <span class="o">{</span>options<span class="o">}</span>
+
+<h2 id="usage">Usage</h2>
+
+<h2 id="command-line-interface">Command-Line Interface</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>electrify <span class="o">[</span>stats-bundle<span class="o">(</span>s<span class="o">)</span>...] <span class="o">{</span>options<span class="o">}</span>
 
 Options:
-  -h, --help    Displays these instructions.
-  -O, --open    Opens viewer in a new browser window automatically
-  -m, --mode    the default file scale mode to display: should be
-                either <span class="s2">&quot;count&quot;</span> or <span class="s2">&quot;size&quot;</span>. Default: size
-</code></pre></div>
-<p>When you install Electrify globally, <code>electrify</code> command-line tool is made
-available as the quickest means of checking out your bundle. As of <code>electrode-electrify@v1.0.0</code>,
+  <span class="nt">-h</span>, <span class="nt">--help</span>    Displays these instructions.
+  <span class="nt">-O</span>, <span class="nt">--open</span>    Opens viewer <span class="k">in </span>a new browser window automatically
+  <span class="nt">-m</span>, <span class="nt">--mode</span>    the default file scale mode to display: should be
+                either <span class="s2">"count"</span> or <span class="s2">"size"</span><span class="nb">.</span> Default: size
+</code></pre></div></div>
+
+<p>When you install Electrify globally, <code class="language-plaintext highlighter-rouge">electrify</code> command-line tool is made
+available as the quickest means of checking out your bundle. As of <code class="language-plaintext highlighter-rouge">electrode-electrify@v1.0.0</code>,
 the tool takes any <a href="https://github.com/webpack/docs/wiki/node.js-api#stats">webpack-stats</a> object <a href="https://github.com/webpack/analyse/blob/master/app/pages/upload/example.json">example</a> as input and spits out a
 standalone HTML page as output.</p>
 
-<p>You can easily chain the stats file into another command, or use the <code>--open</code> flag to open Electrify in your browser automatically:</p>
+<p>You can easily chain the stats file into another command, or use the <code class="language-plaintext highlighter-rouge">--open</code> flag to open Electrify in your browser automatically:</p>
 
 <p>For example:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ electrify build/stats.json --open
-</code></pre></div><h2><a class="anchor" name="palettes"></a>Palettes <a class="hash-link" href="#palettes">#</a></h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>electrify build/stats.json <span class="nt">--open</span>
+</code></pre></div></div>
+
+<h2 id="palettes">Palettes</h2>
+
 <p>You can switch between multiple color palettes, most of which serve to highlight
 specific features of your bundle:</p>
-<h3><a class="anchor" name="structure-highlights"></a>Structure Highlights <a class="hash-link" href="#structure-highlights">#</a></h3>
-<p><img src="http://i.imgur.com/Ajp20Jxm.png" alt="Structure Highlights"></p>
 
-<p>Highlights <code>node_modules</code> directories as green and <code>lib</code> directories as orange.
-This makes it easier to scan for &quot;kitchen sink&quot; modules or modules with lots of
+<h3 id="structure-highlights">Structure Highlights</h3>
+
+<p><img src="http://i.imgur.com/Ajp20Jxm.png" alt="Structure Highlights" /></p>
+
+<p>Highlights <code class="language-plaintext highlighter-rouge">node_modules</code> directories as green and <code class="language-plaintext highlighter-rouge">lib</code> directories as orange.
+This makes it easier to scan for “kitchen sink” modules or modules with lots of
 dependencies.</p>
-<h3><a class="anchor" name="file-types"></a>File Types <a class="hash-link" href="#file-types">#</a></h3>
-<p><img src="http://i.imgur.com/oY5euGAm.png" alt="File Types"></p>
 
-<p>Highlights each file type (e.g. <code>.js</code>, <code>.css</code>, etc.) a different color. Helpful
-for tracking down code generated from a transform that&#39;s bloating your bundle
+<h3 id="file-types">File Types</h3>
+
+<p><img src="http://i.imgur.com/oY5euGAm.png" alt="File Types" /></p>
+
+<p>Highlights each file type (e.g. <code class="language-plaintext highlighter-rouge">.js</code>, <code class="language-plaintext highlighter-rouge">.css</code>, etc.) a different color. Helpful
+for tracking down code generated from a transform that’s bloating your bundle
 more than expected.</p>
-<h3><a class="anchor" name="originalpastel"></a>Original/Pastel <a class="hash-link" href="#originalpastel">#</a></h3>
-<p><img src="http://i.imgur.com/ajAoqePm.png" alt="Pastel"></p>
+
+<h3 id="originalpastel">Original/Pastel</h3>
+
+<p><img src="http://i.imgur.com/ajAoqePm.png" alt="Pastel" /></p>
 
 <p>Nothing particularly special about these palettes – colored for legibility and
 aesthetics respectively.</p>
-<h3><a class="anchor" name="other-useful-bundlestats-generators"></a>Other useful bundle/stats generators <a class="hash-link" href="#other-useful-bundlestats-generators">#</a></h3>
+
+<h3 id="other-useful-bundlestats-generators">Other useful bundle/stats generators</h3>
 <ul>
-<li><a href="https://github.com/hughsk/disc">disc-browserify</a> (Helpful for analyzing <strong>browserify</strong> projects and a huge inspiration for electrify, used <em>disc</em> extensively in my past <strong>browserify</strong> based projects)</li>
-<li><a href="https://github.com/robertknight/webpack-bundle-size-analyzer">webpack-bundle-size-analyzer</a></li>
-<li><a href="https://github.com/chrisbateman/webpack-visualizer">webpack-visualizer</a></li>
-<li><a href="https://github.com/alexkuz/webpack-chart">webpack-chart</a></li>
-<li><a href="https://github.com/unindented/stats-webpack-plugin">stats-webpack-plugin</a></li>
+  <li><a href="https://github.com/hughsk/disc">disc-browserify</a> (Helpful for analyzing <strong>browserify</strong> projects and a huge inspiration for electrify, used <em>disc</em> extensively in my past <strong>browserify</strong> based projects)</li>
+  <li><a href="https://github.com/robertknight/webpack-bundle-size-analyzer">webpack-bundle-size-analyzer</a></li>
+  <li><a href="https://github.com/chrisbateman/webpack-visualizer">webpack-visualizer</a></li>
+  <li><a href="https://github.com/alexkuz/webpack-chart">webpack-chart</a></li>
+  <li><a href="https://github.com/unindented/stats-webpack-plugin">stats-webpack-plugin</a></li>
 </ul>
 
 

@@ -2103,102 +2103,151 @@
     <div class="subHeader"></div>
 
     <blockquote>
-<p>Electrode Environment Setup Requirements:
-<br>
-* Latest <a href="https://nodejs.org/en/">Node LTS binary</a> (at least v4.2 required), tip: use <a href="https://github.com/creationix/nvm">nvm</a> to manage your nodejs versions.
-* <a href="https://github.com/npm/npm/releases/tag/v3.0.0">npm v3</a> - Install the latest <a href="https://www.npmjs.com/">npm</a> version <code>npm install -g npm</code></p>
-
-<p>please checkout <a href="http://www.electrode.io/docs/requirements.html">requirements docs</a> for detailed setup instructions.</p>
+  <p>Electrode Environment Setup Requirements:
+<br /></p>
+  <ul>
+    <li>Latest <a href="https://nodejs.org/en/">Node LTS binary</a> (at least v4.2 required), tip: use <a href="https://github.com/creationix/nvm">nvm</a> to manage your nodejs versions.</li>
+    <li><a href="https://github.com/npm/npm/releases/tag/v3.0.0">npm v3</a> - Install the latest <a href="https://www.npmjs.com/">npm</a> version <code class="language-plaintext highlighter-rouge">npm install -g npm</code></li>
+  </ul>
 </blockquote>
-<h4><a class="anchor" name="quick-guide"></a>Quick Guide <a class="hash-link" href="#quick-guide">#</a></h4>
+
+<blockquote>
+  <p>please checkout <a href="http://www.electrode.io/docs/requirements.html">requirements docs</a> for detailed setup instructions.</p>
+</blockquote>
+
+<h4 id="quick-guide">Quick Guide</h4>
+
 <p>Are you ready to build your first Electrode App?</p>
 
 <p>Please make sure to have all the <a href="http://www.electrode.io/docs/requirements.html">environment requirements</a> ready &amp; setup before proceeding to the next step.</p>
 
 <p>First, install <a href="http://yeoman.io/">Yeoman</a> and the <a href="https://github.com/electrode-io/electrode#yeoman-generator">Electrode Generator</a></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ npm install -g yo gulp generator-electrode
 
-** NOTE: You may need sudo depending on your machine permissions. **
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> yo gulp generator-electrode
+
+<span class="k">**</span> NOTE: You may need <span class="nb">sudo </span>depending on your machine permissions. <span class="k">**</span>
+</code></pre></div></div>
+
 <p>Make a new directory for your awesome app, then generate your new project:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ mkdir your-awesome-app
-$ <span class="nb">cd</span> your-awesome-app
-$ yo electrode
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>your-awesome-app
+<span class="nv">$ </span><span class="nb">cd </span>your-awesome-app
+<span class="nv">$ </span>yo electrode
+</code></pre></div></div>
+
 <p>Fill out the Electrode App generator with your information:</p>
 
-<p><img src="/img/generator-application.png" alt="generator-app"></p>
+<p><img src="/img/generator-application.png" alt="generator-app" /></p>
 
 <p>Run one simple command to start the server. Presto!</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ gulp dev
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gulp dev
+</code></pre></div></div>
+
 <p>Now open <a href="http://localhost:3000">localhost:3000</a> in your browser to access the app. Hello Electrode!</p>
 
-<p>To view all the gulp tasks available type <code>gulp</code>.
-To build your app&#39;s client bundle for production use</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>gulp build
-</code></pre></div>
+<p>To view all the gulp tasks available type <code class="language-plaintext highlighter-rouge">gulp</code>.
+To build your app’s client bundle for production use</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gulp build
+</code></pre></div></div>
+
 <p>followed by</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>npm run prod
-</code></pre></div>
-<hr>
-<h5><a class="anchor" name="project-structure"></a>Project Structure <a class="hash-link" href="#project-structure">#</a></h5>
-<p>Let&#39;s take a quick high level overview of our file structure and what <code>generator-electrode</code> gives you out the box. Read through our <a href="whats_inside.html">What&#39;s Inside section</a> for a more detailed description.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run prod
+</code></pre></div></div>
+
+<hr />
+
+<h5 id="project-structure">Project Structure</h5>
+
+<p>Let’s take a quick high level overview of our file structure and what <code class="language-plaintext highlighter-rouge">generator-electrode</code> gives you out the box. Read through our <a href="whats_inside.html">What’s Inside section</a> for a more detailed description.</p>
 
 <ul>
-<li><p><code>src/client/</code></p>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">src/client/</code></p>
 
-<p>Contains your client side code and our favs, React, Redux + CSS modules.</p>
+    <p>Contains your client side code and our favs, React, Redux + CSS modules.</p>
 
-<ul>
-<li><p><code>app.jsx</code></p>
+    <ul>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">app.jsx</code></p>
 
-<p>The entry point for the client. It contains powerful Electrode modules that we will leverage as we build out functionality.</p></li>
-<li><p><code>routes.jsx</code></p>
+        <p>The entry point for the client. It contains powerful Electrode modules that we will leverage as we build out functionality.</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">routes.jsx</code></p>
 
-<p>The shared routes between client and server are defined here for use with react-router.</p></li>
-<li><p><code>components/</code></p>
+        <p>The shared routes between client and server are defined here for use with react-router.</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">components/</code></p>
 
-<p>This is the folder for your React components. We love React and how it helps us to manage User Interface complexity. Read more in the Explore section.</p></li>
-<li><p><code>styles/</code></p>
+        <p>This is the folder for your React components. We love React and how it helps us to manage User Interface complexity. Read more in the Explore section.</p>
+      </li>
+      <li>
+        <p><code class="language-plaintext highlighter-rouge">styles/</code></p>
 
-<p>This is the folder for your CSS files. We will use CSS Modules: a CSS file in which all class names and animation names are scoped locally by default.</p></li>
-</ul></li>
-<li><p><code>src/server/</code></p>
+        <p>This is the folder for your CSS files. We will use CSS Modules: a CSS file in which all class names and animation names are scoped locally by default.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">src/server/</code></p>
 
-<p>Contains your server-side code. Electrode-Server gives you a powerful plugin capable of SSR out the box. Learn more in the <a href="whats_inside.html">What&#39;s Inside section</a>.</p></li>
-<li><p><code>config/</code></p>
+    <p>Contains your server-side code. Electrode-Server gives you a powerful plugin capable of SSR out the box. Learn more in the <a href="whats_inside.html">What’s Inside section</a>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">config/</code></p>
 
-<p>Your environment specific configuration files go here and are managed by the versatile <a href="confippet.html">electrode-confippet</a> module, including a preset config that you can customize and extend.</p></li>
-<li><p><code>node_modules/</code></p>
+    <p>Your environment specific configuration files go here and are managed by the versatile <a href="confippet.html">electrode-confippet</a> module, including a preset config that you can customize and extend.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">node_modules/</code></p>
 
-<p>Other Javascript files contained in modules that we will use in this application, including Electrode modules that create your out-the-box Universal app. This folder is managed directy by <code>npm</code>.</p></li>
-<li><p><code>.babelrc</code></p>
+    <p>Other Javascript files contained in modules that we will use in this application, including Electrode modules that create your out-the-box Universal app. This folder is managed directy by <code class="language-plaintext highlighter-rouge">npm</code>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.babelrc</code></p>
 
-<p>Where we extend our app babel configuration to allow us to use the presets and any additional babel settings.</p></li>
-<li><p><code>.gitignore</code></p>
+    <p>Where we extend our app babel configuration to allow us to use the presets and any additional babel settings.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.gitignore</code></p>
 
-<p>A file that tell git what files (or patterns) to ignore when you commit.</p></li>
-<li><p><code>.ismorphic-loader-config.json</code></p>
+    <p>A file that tell git what files (or patterns) to ignore when you commit.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.ismorphic-loader-config.json</code></p>
 
-<p>A webpack loader, plugin and library to make NodeJS <code>require</code> work with complex files like images when we are doing server-side rendering.</p></li>
-<li><p><code>.travis.yml</code></p>
+    <p>A webpack loader, plugin and library to make NodeJS <code class="language-plaintext highlighter-rouge">require</code> work with complex files like images when we are doing server-side rendering.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.travis.yml</code></p>
 
-<p>A file where you can customize any process in the Travis default build environment.</p></li>
-<li><p><code>gulpfile.js</code></p>
+    <p>A file where you can customize any process in the Travis default build environment.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">gulpfile.js</code></p>
 
-<p>A file that stores all your Gulp configurations. We will explore this more in <a href="create_reusable_component.html">Getting Started: Intermediate</a>.</p></li>
-<li><p><code>package.json</code></p>
+    <p>A file that stores all your Gulp configurations. We will explore this more in <a href="create_reusable_component.html">Getting Started: Intermediate</a>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">package.json</code></p>
 
-<p>Contains the metadata for <code>your-awesome-app</code> and a list of your dependencies to install when running <code>npm install</code>.</p></li>
-<li><p><code>README.md</code></p>
+    <p>Contains the metadata for <code class="language-plaintext highlighter-rouge">your-awesome-app</code> and a list of your dependencies to install when running <code class="language-plaintext highlighter-rouge">npm install</code>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">README.md</code></p>
 
-<p>Info you want users to know about your app (installation instructions, licensing, contributors, etc.).</p></li>
+    <p>Info you want users to know about your app (installation instructions, licensing, contributors, etc.).</p>
+  </li>
 </ul>
 
-<hr>
+<hr />
 
-<p>Let&#39;s continue to build by modifying our component and deploying in <a href="build_component.html">Quick Start: Build Component</a>.</p>
+<p>Let’s continue to build by modifying our component and deploying in <a href="build_component.html">Quick Start: Build Component</a>.</p>
+
 
 
     

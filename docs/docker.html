@@ -2102,83 +2102,117 @@
     <h1>Docker</h1>
     <div class="subHeader"></div>
 
-    <h3><a class="anchor" name="deploy-with-docker"></a>Deploy with Docker <a class="hash-link" href="#deploy-with-docker">#</a></h3>
+    <h3 id="deploy-with-docker">Deploy with Docker</h3>
+
 <p>Docker is a new container-based technology designed to make applications easier
-to create, deploy and run. It&#39;s an increasingly popular way to accelerate
+to create, deploy and run. It’s an increasingly popular way to accelerate
 development and share content. To get started, sign up for <a href="https://cloud.docker.com">Docker</a>, download
 <a href="https://www.docker.com/products/docker">Docker for your machine</a> and read over the corresponding system requirements.
-Docker is available for all major operating systems. See the corresponding &quot;Get
-Started Tutorial&quot; for your OS version on the Docker product page.</p>
+Docker is available for all major operating systems. See the corresponding “Get
+Started Tutorial” for your OS version on the Docker product page.</p>
 
-<p>Let&#39;s check the versions of <code>Docker Engine</code>, <code>Compose</code> and <code>Machine</code> by running
+<p>Let’s check the versions of <code class="language-plaintext highlighter-rouge">Docker Engine</code>, <code class="language-plaintext highlighter-rouge">Compose</code> and <code class="language-plaintext highlighter-rouge">Machine</code> by running
 the commands below:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker --version
 
-$ docker-compose --version
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nt">--version</span>
 
-$ docker-machine --version
-</code></pre></div>
-<p>Verify your installation by running the Docker version of &quot;Hello World&quot;:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker run hello-world
-</code></pre></div>
+<span class="nv">$ </span>docker-compose <span class="nt">--version</span>
+
+<span class="nv">$ </span>docker-machine <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>Verify your installation by running the Docker version of “Hello World”:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run hello-world
+</code></pre></div></div>
+
 <p>To show all the containers on the system, run the command below:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker ps -a
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker ps <span class="nt">-a</span>
+</code></pre></div></div>
+
 <p><strong>Electrode has a <a href="https://hub.docker.com/r/electrode/electrode-io/">Dockerfile and Docker image</a> built in to expedite deployment.
 Simply:</strong></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker pull electrode/electrode-io
-</code></pre></div>
-<p>Try the image in your docker container:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker run -d -p <span class="m">3000</span>:3000 electrode/electrode-io
-</code></pre></div>
-<p>You&#39;ll see your <code>&lt;container_id&gt;</code> in the terminal.</p>
 
-<p>Verify that the server is running by opening <code>localhost:3000</code> in your browser.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull electrode/electrode-io
+</code></pre></div></div>
+
+<p>Try the image in your docker container:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 3000:3000 electrode/electrode-io
+</code></pre></div></div>
+
+<p>You’ll see your <code class="language-plaintext highlighter-rouge">&lt;container_id&gt;</code> in the terminal.</p>
+
+<p>Verify that the server is running by opening <code class="language-plaintext highlighter-rouge">localhost:3000</code> in your browser.</p>
 
 <p>Copy the code from the container to your local machine for development:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker cp &lt;container_id&gt;:/usr/src/app .
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">cp</span> &lt;container_id&gt;:/usr/src/app <span class="nb">.</span>
+</code></pre></div></div>
+
 <p>Go to the app folder, and use the following command to stop the container so you
 can start your development:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker stop &lt;container_id&gt;
-</code></pre></div>
-<p>Now let&#39;s build a new image by entering the following command:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker build -t docker-awesome-container .
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker stop &lt;container_id&gt;
+</code></pre></div></div>
+
+<p>Now let’s build a new image by entering the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker build <span class="nt">-t</span> docker-awesome-container <span class="nb">.</span>
+</code></pre></div></div>
+
 <p>Run the command below to see a list of the images you currently have:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker images
-</code></pre></div>
-<p>You&#39;ll see <code>node</code> listed. Find the corresponding <code>IMAGE ID</code> for your <code>node</code>
-image. We will now build a command to properly tag the image. It&#39;ll be using
-your <code>image id</code> + <code>account name/repo-name:latest</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker tag your-image-id-# your-account-name/docker-awesome-container:latest
-</code></pre></div>
-<p>Let&#39;s see it! Run the <code>images</code> command below to see a lit of the images you
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker images
+</code></pre></div></div>
+
+<p>You’ll see <code class="language-plaintext highlighter-rouge">node</code> listed. Find the corresponding <code class="language-plaintext highlighter-rouge">IMAGE ID</code> for your <code class="language-plaintext highlighter-rouge">node</code>
+image. We will now build a command to properly tag the image. It’ll be using
+your <code class="language-plaintext highlighter-rouge">image id</code> + <code class="language-plaintext highlighter-rouge">account name/repo-name:latest</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker tag your-image-id-# your-account-name/docker-awesome-container:latest
+</code></pre></div></div>
+
+<p>Let’s see it! Run the <code class="language-plaintext highlighter-rouge">images</code> command below to see a lit of the images you
 currently have:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker images
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker images
+</code></pre></div></div>
+
 <p>Run your image on your local container:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker run -d -p <span class="m">3000</span>:3000 docker-awesome-container
-</code></pre></div>
-<p>Open <code>localhost:3000</code> in your browser to see your app.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 3000:3000 docker-awesome-container
+</code></pre></div></div>
+
+<p>Open <code class="language-plaintext highlighter-rouge">localhost:3000</code> in your browser to see your app.</p>
 
 <p>Your container id will print in the terminal, or you can run the command below
 to see your containers:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker ps
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker ps
+</code></pre></div></div>
+
 <p>Now you can stop the container:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker stop &lt;container_id&gt;
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker stop &lt;container_id&gt;
+</code></pre></div></div>
+
 <p>Log into Docker Hub from the command line. The format is below. Enter your
 password when prompted:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker login --username<span class="o">=</span>yourhubusername --email<span class="o">=</span>youremail@company.com
-</code></pre></div>
-<p>Run the <code>push</code> command below to push your image to your new repo:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker push your-username/docker-awesome-container
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker login <span class="nt">--username</span><span class="o">=</span>yourhubusername <span class="nt">--email</span><span class="o">=</span>youremail@company.com
+</code></pre></div></div>
+
+<p>Run the <code class="language-plaintext highlighter-rouge">push</code> command below to push your image to your new repo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker push your-username/docker-awesome-container
+</code></pre></div></div>
+
 <p>You have successfully pushed your new image to the Docker Cloud repository! From
 here, you can use the <a href="https://docs.docker.com/engine/userguide/intro/">User Guide</a> to run your own containers and build Docker
 images.</p>
+
 
 
     

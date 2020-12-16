@@ -2102,89 +2102,98 @@
     <h1>Add Examples</h1>
     <div class="subHeader"></div>
 
-    <h4><a class="anchor" name="add-examples-to-your-demo"></a>Add Examples to Your Demo <a class="hash-link" href="#add-examples-to-your-demo">#</a></h4>
+    <h4 id="add-examples-to-your-demo">Add Examples to Your Demo</h4>
+
 <p>Create a file named
-<code>&lt;your-awesome-component&gt;/demo/examples/render-friend.example</code>. Copy, paste and
+<code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/demo/examples/render-friend.example</code>. Copy, paste and
 save the code below into this file:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span>  <span class="o">&lt;</span><span class="nx">RenderFriend</span>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&lt;</span><span class="nx">RenderFriend</span>
     <span class="nx">friend</span><span class="o">=</span><span class="p">{</span>
-      <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="nx">img</span><span class="o">:</span> <span class="s2">&quot;//goo.gl/dL5MXT&quot;</span><span class="p">}</span>
-    <span class="p">}</span> <span class="o">/&gt;</span>
-</code></pre></div>
+      <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span> <span class="na">img</span><span class="p">:</span> <span class="dl">"</span><span class="s2">//goo.gl/dL5MXT</span><span class="dl">"</span><span class="p">}</span>
+    <span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span></code></pre></div></div>
+
 <p>Create a file named
-<code>&lt;your-awesome-component&gt;/demo/examples/guest-list.example</code>. Copy, paste and
+<code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/demo/examples/guest-list.example</code>. Copy, paste and
 save the code below into this file:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">GuestList</span>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">GuestList</span>
   <span class="nx">invitees</span><span class="o">=</span><span class="p">{[</span>
-  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John Smith&#39;</span><span class="p">,</span> <span class="nx">invited</span><span class="o">:</span> <span class="kc">false</span><span class="p">},</span>
-  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Jane Smith&#39;</span><span class="p">,</span> <span class="nx">invited</span><span class="o">:</span> <span class="kc">false</span><span class="p">},</span>
-  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Dan Jones&#39;</span><span class="p">,</span> <span class="nx">invited</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John Smith</span><span class="dl">'</span><span class="p">,</span> <span class="na">invited</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Jane Smith</span><span class="dl">'</span><span class="p">,</span> <span class="na">invited</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dan Jones</span><span class="dl">'</span><span class="p">,</span> <span class="na">invited</span><span class="p">:</span> <span class="kc">false</span><span class="p">}</span>
   <span class="p">]}</span>
-  <span class="nx">toggleGuest</span><span class="o">=</span><span class="p">{(</span><span class="nx">invitee</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">invitee</span><span class="p">.</span><span class="nx">name</span><span class="p">)}</span>
-  <span class="o">/&gt;</span>
-</code></pre></div>
+  <span class="nx">toggleGuest</span><span class="o">=</span><span class="p">{(</span><span class="nx">invitee</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="nx">invitee</span><span class="p">.</span><span class="nx">name</span><span class="p">)}</span>
+  <span class="sr">/</span><span class="err">&gt;
+</span></code></pre></div></div>
+
 <p>Navigate to
-<code>&lt;your-awesome-component&gt;/demo/examples/your-awesome-component.example</code>. Add the
-code below. Don&#39;t forget to change the references from the literal
-<code>YourAwesomeComponent</code> to your actual component name:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">YourAwesomeComponent</span>
+<code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/demo/examples/your-awesome-component.example</code>. Add the
+code below. Don’t forget to change the references from the literal
+<code class="language-plaintext highlighter-rouge">YourAwesomeComponent</code> to your actual component name:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">YourAwesomeComponent</span>
   <span class="nx">ourFriends</span><span class="o">=</span><span class="p">{[</span>
-   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;electrode&quot;</span><span class="p">,</span> <span class="nx">img</span><span class="o">:</span> <span class="s2">&quot;//goo.gl/CZ4wAF&quot;</span><span class="p">,</span> <span class="nx">size</span><span class="o">:</span> <span class="mi">12</span><span class="p">},</span>
-   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hapi&quot;</span><span class="p">,</span> <span class="nx">img</span><span class="o">:</span> <span class="s2">&quot;//goo.gl/q9uIFW&quot;</span><span class="p">,</span> <span class="nx">size</span><span class="o">:</span> <span class="mi">12</span><span class="p">},</span>
-   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;React&quot;</span><span class="p">,</span> <span class="nx">img</span><span class="o">:</span> <span class="s2">&quot;//goo.gl/dL5MXT&quot;</span><span class="p">,</span> <span class="nx">size</span><span class="o">:</span> <span class="mi">12</span><span class="p">},</span>
+   <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">electrode</span><span class="dl">"</span><span class="p">,</span> <span class="na">img</span><span class="p">:</span> <span class="dl">"</span><span class="s2">//goo.gl/CZ4wAF</span><span class="dl">"</span><span class="p">,</span> <span class="na">size</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span>
+   <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hapi</span><span class="dl">"</span><span class="p">,</span> <span class="na">img</span><span class="p">:</span> <span class="dl">"</span><span class="s2">//goo.gl/q9uIFW</span><span class="dl">"</span><span class="p">,</span> <span class="na">size</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span>
+   <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">React</span><span class="dl">"</span><span class="p">,</span> <span class="na">img</span><span class="p">:</span> <span class="dl">"</span><span class="s2">//goo.gl/dL5MXT</span><span class="dl">"</span><span class="p">,</span> <span class="na">size</span><span class="p">:</span> <span class="mi">12</span><span class="p">},</span>
   <span class="p">]}</span>
 
   <span class="nx">invitees</span><span class="o">=</span><span class="p">{[</span>
-   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;electrode&quot;</span><span class="p">,</span> <span class="nx">invited</span><span class="o">:</span> <span class="kc">false</span><span class="p">},</span>
-   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hapi&quot;</span><span class="p">,</span> <span class="nx">invited</span><span class="o">:</span> <span class="kc">false</span><span class="p">},</span>
-   <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;React&quot;</span><span class="p">,</span> <span class="nx">invited</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span>
+   <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">electrode</span><span class="dl">"</span><span class="p">,</span> <span class="na">invited</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
+   <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hapi</span><span class="dl">"</span><span class="p">,</span> <span class="na">invited</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
+   <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">React</span><span class="dl">"</span><span class="p">,</span> <span class="na">invited</span><span class="p">:</span> <span class="kc">false</span><span class="p">}</span>
   <span class="p">]}</span>
 
-  <span class="nx">toggleGuest</span><span class="o">=</span><span class="p">{(</span><span class="nx">invitee</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Edit invitees array in playground to invite a guest!&#39;</span><span class="p">)}</span>
+  <span class="nx">toggleGuest</span><span class="o">=</span><span class="p">{(</span><span class="nx">invitee</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Edit invitees array in playground to invite a guest!</span><span class="dl">'</span><span class="p">)}</span>
 
-  <span class="nx">message</span><span class="o">=</span><span class="p">{(</span><span class="nx">c</span><span class="p">)=&gt;(</span>
+  <span class="nx">message</span><span class="o">=</span><span class="p">{(</span><span class="nx">c</span><span class="p">)</span><span class="o">=&gt;</span><span class="p">(</span>
 
-  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">c</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Change</span> <span class="nx">key</span> <span class="s1">&#39;invited&#39;</span> <span class="nx">to</span> <span class="kc">true</span> <span class="k">in</span> <span class="s1">&#39;invitees&#39;</span> <span class="nx">array</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">playground</span>
-  <span class="nx">above</span> <span class="nx">to</span> <span class="nx">invite</span> <span class="nx">guests</span><span class="o">!&lt;</span><span class="err">/div&gt;</span>
-
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="nx">c</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Change</span> <span class="nx">key</span> <span class="dl">'</span><span class="s1">invited</span><span class="dl">'</span> <span class="nx">to</span> <span class="kc">true</span> <span class="k">in</span> <span class="dl">'</span><span class="s1">invitees</span><span class="dl">'</span> <span class="nx">array</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">playground</span>
+  <span class="nx">above</span> <span class="nx">to</span> <span class="nx">invite</span> <span class="nx">guests</span><span class="o">!&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
   <span class="p">)}</span>
-<span class="err">/&gt;</span>
-</code></pre></div>
-<p>Now Navigate to <code>&lt;your-awesome-component&gt;/demo/demo.jsx</code>. Modify <code>const
+<span class="sr">/</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Now Navigate to <code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/demo/demo.jsx</code>. Modify <code class="language-plaintext highlighter-rouge">const
 components</code> to include your demo examples:</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">const</span> <span class="nx">components</span> <span class="o">=</span> <span class="p">[</span>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">components</span> <span class="o">=</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;HouseParty&quot;</span><span class="p">,</span>
-    <span class="nx">examples</span><span class="o">:</span> <span class="p">[</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">HouseParty</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">examples</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;playground&quot;</span><span class="p">,</span>
-        <span class="nx">code</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;raw!./examples/guest-list.example&quot;</span><span class="p">),</span>
-        <span class="nx">noRender</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">playground</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">code</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">raw!./examples/guest-list.example</span><span class="dl">"</span><span class="p">),</span>
+        <span class="na">noRender</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;RenderFriend&quot;</span><span class="p">,</span>
-    <span class="nx">examples</span><span class="o">:</span> <span class="p">[</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RenderFriend</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">examples</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;playground&quot;</span><span class="p">,</span>
-        <span class="nx">code</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;raw!./examples/render-friend.example&quot;</span><span class="p">),</span>
-        <span class="nx">noRender</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">playground</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">code</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">raw!./examples/render-friend.example</span><span class="dl">"</span><span class="p">),</span>
+        <span class="na">noRender</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;YourAwesomeComponent&quot;</span><span class="p">,</span>
-    <span class="nx">examples</span><span class="o">:</span> <span class="p">[</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">YourAwesomeComponent</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">examples</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;playground&quot;</span><span class="p">,</span>
-        <span class="nx">code</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;raw!./examples/your-awesome-component.example&quot;</span><span class="p">),</span>
-        <span class="nx">noRender</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">playground</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">code</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">raw!./examples/your-awesome-component.example</span><span class="dl">"</span><span class="p">),</span>
+        <span class="na">noRender</span><span class="p">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">];</span>
-</code></pre></div>
+</code></pre></div></div>
+
 
     
 

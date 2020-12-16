@@ -2103,13 +2103,14 @@
     <div class="subHeader"></div>
 
     <blockquote>
-<p>If you&#39;re writing a universal React/Node.js application, then Electrode is for you!</p>
+  <p>If you’re writing a universal React/Node.js application, then Electrode is for you!</p>
 </blockquote>
 
 <p>At <a href="http://www.walmartlabs.com/">@WalmartLabs</a>, we recently migrated <a href="http://walmart.com">walmart.com</a> to a <a href="https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.k3j9fruyn">Universal JavaScript</a>
 stack using React/Node.js. Along the way, we hit a few stumbling blocks that
-might sound familiar if you&#39;ve worked on a large, complex web app before.</p>
-<h3><a class="anchor" name="universal-javascript"></a>Universal JavaScript <a class="hash-link" href="#universal-javascript">#</a></h3>
+might sound familiar if you’ve worked on a large, complex web app before.</p>
+
+<h3 id="universal-javascript">Universal JavaScript</h3>
 <p>Universal JavaScript allows us to use the same view rendering code from the
 server and client. When a user requests a page, they immediately receive
 the fully rendered HTML on initial page load. They will not have to wait
@@ -2123,47 +2124,59 @@ the page. Only the data changes will be sent between the client and the server.<
 <p>This approach provides for an optimized user experience resulting in fast
 page loads and even faster navigation experience. In the world of eCommerce
 where every millisecond counts, we believe this is the best way forward.</p>
-<h3><a class="anchor" name="codeui-reuse"></a>Code/UI Reuse <a class="hash-link" href="#codeui-reuse">#</a></h3>
+
+<h3 id="codeui-reuse">Code/UI Reuse</h3>
+
 <p>We reuse React components across all of our brands, which means our developers
 need to be able to search through thousands of components, view their
-documentation and see them rendered, and use another developer&#39;s component
+documentation and see them rendered, and use another developer’s component
 secure in the knowledge that its structure and implementation are consistent
 with our standards. We needed a way to ensure that all components were built
 according to modern best practices, without slowing our developers down with a
 lot of manual configuration.</p>
-<h3><a class="anchor" name="server-side-rendering-ssr-performance"></a>Server Side Rendering (SSR) Performance <a class="hash-link" href="#server-side-rendering-ssr-performance">#</a></h3>
+
+<h3 id="server-side-rendering-ssr-performance">Server Side Rendering (SSR) Performance</h3>
+
 <p>We serve millions of customers a day, so performance is critical to our business.
-React&#39;s SSR support is vital for SEO (Search Engine Optimization) and has the potential to improve performance,
-but it&#39;s intensive on the server CPUs. We needed a platform with SSR built-in with
-a default configuration that&#39;s optimized for performance.</p>
-<h3><a class="anchor" name="fast-startup-and-deployment"></a>Fast Startup and Deployment <a class="hash-link" href="#fast-startup-and-deployment">#</a></h3>
-<p>We don&#39;t have time to create an application structure, configuration files, and
+React’s SSR support is vital for SEO (Search Engine Optimization) and has the potential to improve performance,
+but it’s intensive on the server CPUs. We needed a platform with SSR built-in with
+a default configuration that’s optimized for performance.</p>
+
+<h3 id="fast-startup-and-deployment">Fast Startup and Deployment</h3>
+
+<p>We don’t have time to create an application structure, configuration files, and
 Docker containers from scratch every time we start a project. We need to start
 fast and to deploy fast, with a consistent structure and optimal configuration every
 time.</p>
-<h3><a class="anchor" name="three-pillars"></a>Three Pillars <a class="hash-link" href="#three-pillars">#</a></h3>
+
+<h3 id="three-pillars">Three Pillars</h3>
+
 <p>To solve these problems, we created the Electrode platform. Electrode consists
 of three pillars: Electrode Core, Electrode Modules, and Electrode Tools.</p>
 
 <p><strong><em>Electrode Core</em></strong> provides a set of modules that get you started with a simple,
-consistent structure that follows modern best practices. When you&#39;re ready to
+consistent structure that follows modern best practices. When you’re ready to
 take your app into production, Electrode automatically deploys to your favorite
 cloud provider.</p>
 
 <p><strong><em>Electrode Modules</em></strong> improve performance, efficiency, and security by adding
-features like <a href="above_fold_rendering.html">above the fold rendering</a>, <a href="confippet.html">configuration management</a>, and <a href="stateless_csrf_validation.html">cross-site request forgery protection</a>. These modules can even be used with your existing React/Node.js application—so there&#39;s no need to migrate to Electrode Core.</p>
+features like <a href="above_fold_rendering.html">above the fold rendering</a>, <a href="confippet.html">configuration management</a>, and <a href="stateless_csrf_validation.html">cross-site request forgery protection</a>. These modules can even be used with your existing React/Node.js application—so there’s no need to migrate to Electrode Core.</p>
 
 <p><strong><em>Electrode Tools</em></strong> help <a href="electrode_explorer.html">organize</a> reusable components and <a href="electrify.html">optimize large
 JavaScript bundles</a>. Like the modules, our tools can be used with any
 React/Node.js app.</p>
-<h3><a class="anchor" name="future-investment"></a>Future Investment <a class="hash-link" href="#future-investment">#</a></h3>
+
+<h3 id="future-investment">Future Investment</h3>
+
 <p><a href="https://github.com/electrode-io">Electrode</a> will continue to improve as we continue to solve problems like these at <a href="http://www.walmartlabs.com/">@WalmartLabs</a>. Future enhancements will include more <a href="https://developers.google.com/web/progressive-web-apps/">progressive web app
 features</a> for web and mobile, bigger investments in performance, and much more.</p>
 
-<p>We&#39;re committed to open source, which means our investment is your investment.</p>
-<h3><a class="anchor" name="take-a-look"></a>Take a Look <a class="hash-link" href="#take-a-look">#</a></h3>
-<p>So let&#39;s go! Check out the developer environment
-<a href="requirements.html">requirements</a>, dive into <a href="https://electrode-io.github.io/docs/what_is_electrode.html#features">Electrode&#39;s features in
+<p>We’re committed to open source, which means our investment is your investment.</p>
+
+<h3 id="take-a-look">Take a Look</h3>
+
+<p>So let’s go! Check out the developer environment
+<a href="requirements.html">requirements</a>, dive into <a href="https://electrode-io.github.io/docs/what_is_electrode.html#features">Electrode’s features in
 detail</a>, or
 use our <a href="get_started.html">Getting Started: Quick Guide</a> to start building now.</p>
 
