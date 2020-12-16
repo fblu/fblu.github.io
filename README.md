@@ -23,13 +23,13 @@ is generated using [Jekyll](http://jekyllrb.com/).
 Install the project dependencies using Bundler:
 
 ```sh
-bundle install
+npm run bootstrap
 ```
 
 Run the server locally:
 
 ```sh
-bundle exec jekyll serve
+npm start
 ```
 
 You should be able to access the site at: [127.0.0.1:4000](http://127.0.0.1:4000/)
