@@ -2102,197 +2102,190 @@
     <h1>Develop Styles</h1>
     <div class="subHeader"></div>
 
-    <h4 id="develop-styles-using-css-modules">Develop styles using CSS modules</h4>
-
-<p>Let’s also add some style elements using <a href="https://github.com/css-modules/css-modules">CSS modules</a> to create a dynamic
+    <h4><a class="anchor" name="develop-styles-using-css-modules"></a>Develop styles using CSS modules <a class="hash-link" href="#develop-styles-using-css-modules">#</a></h4>
+<p>Let&#39;s also add some style elements using <a href="https://github.com/css-modules/css-modules">CSS modules</a> to create a dynamic
 application. Use the code below to replace what is in
-<code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/src/styles/your-awesome-component.css</code>:</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="nb">sans-serif</span><span class="p">;</span>
+<code>&lt;your-awesome-component&gt;/src/styles/your-awesome-component.css</code>:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span></span><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="p">:</span> <span class="kc">sans-serif</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nt">p</span> <span class="p">{</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="k">@keyframes</span> <span class="n">partyLights</span> <span class="p">{</span>
-  <span class="err">0</span><span class="o">%</span><span class="p">{</span><span class="nl">background-position</span><span class="p">:</span><span class="m">0%</span> <span class="m">51%</span><span class="p">}</span>
-  <span class="err">50</span><span class="o">%</span><span class="p">{</span><span class="nl">background-position</span><span class="p">:</span><span class="m">100%</span> <span class="m">50%</span><span class="p">}</span>
-  <span class="err">100</span><span class="o">%</span><span class="p">{</span><span class="nl">background-position</span><span class="p">:</span><span class="m">0%</span> <span class="m">51%</span><span class="p">}</span>
+<span class="p">@</span><span class="k">keyframes</span> <span class="nt">partyLights</span> <span class="p">{</span>
+  <span class="nt">0</span><span class="o">%</span><span class="p">{</span><span class="k">background-position</span><span class="p">:</span><span class="mi">0</span><span class="kt">%</span> <span class="mi">51</span><span class="kt">%</span><span class="p">}</span>
+  <span class="nt">50</span><span class="o">%</span><span class="p">{</span><span class="k">background-position</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span> <span class="mi">50</span><span class="kt">%</span><span class="p">}</span>
+  <span class="nt">100</span><span class="o">%</span><span class="p">{</span><span class="k">background-position</span><span class="p">:</span><span class="mi">0</span><span class="kt">%</span> <span class="mi">51</span><span class="kt">%</span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">@keyframes</span> <span class="n">shake</span> <span class="p">{</span>
+<span class="p">@</span><span class="k">keyframes</span> <span class="nt">shake</span> <span class="p">{</span>
   <span class="nt">from</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="err">10</span><span class="o">%,</span> <span class="err">20</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">.9</span><span class="p">,</span> <span class="m">.9</span><span class="p">,</span> <span class="m">.9</span><span class="p">)</span> <span class="n">rotate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-3deg</span><span class="p">);</span>
+  <span class="nt">10</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">)</span> <span class="nb">rotate3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">-3</span><span class="kt">deg</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="err">30</span><span class="o">%,</span> <span class="err">50</span><span class="o">%,</span> <span class="err">70</span><span class="o">%,</span> <span class="err">90</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">)</span> <span class="n">rotate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3deg</span><span class="p">);</span>
+  <span class="nt">30</span><span class="o">%,</span> <span class="nt">50</span><span class="o">%,</span> <span class="nt">70</span><span class="o">%,</span> <span class="nt">90</span><span class="o">%</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span> <span class="nb">rotate3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="kt">deg</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="err">40</span><span class="o">%,</span> <span class="err">60</span><span class="o">%,</span> <span class="err">80</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">)</span> <span class="n">rotate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-3deg</span><span class="p">);</span>
+  <span class="nt">40</span><span class="o">%,</span> <span class="nt">60</span><span class="o">%,</span> <span class="nt">80</span><span class="o">%</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span> <span class="nb">rotate3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">-3</span><span class="kt">deg</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="nt">to</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nc">.party</span> <span class="p">{</span>
-  <span class="nl">animation-name</span><span class="p">:</span> <span class="n">shake</span><span class="p">;</span>
-  <span class="nl">animation-duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span>
-  <span class="nl">animation-fill-mode</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
-  <span class="nl">animation-iteration-count</span><span class="p">:</span> <span class="n">infinite</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">party</span> <span class="p">{</span>
+  <span class="k">animation-name</span><span class="p">:</span> <span class="n">shake</span><span class="p">;</span>
+  <span class="k">animation-duration</span><span class="p">:</span> <span class="mi">1</span><span class="kt">s</span><span class="p">;</span>
+  <span class="k">animation-fill-mode</span><span class="p">:</span> <span class="kc">both</span><span class="p">;</span>
+  <span class="k">animation-iteration-count</span><span class="p">:</span> <span class="kc">infinite</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.houseParty</span> <span class="p">{</span>
-	<span class="nl">-webkit-clip-path</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">2%</span> <span class="m">97%</span><span class="p">,</span> <span class="m">98%</span> <span class="m">97%</span><span class="p">,</span> <span class="m">98%</span> <span class="m">44%</span><span class="p">,</span> <span class="m">51%</span> <span class="m">8%</span><span class="p">,</span> <span class="m">3%</span> <span class="m">45%</span><span class="p">);</span>
-  <span class="nl">clip-path</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">2%</span> <span class="m">97%</span><span class="p">,</span> <span class="m">98%</span> <span class="m">97%</span><span class="p">,</span> <span class="m">98%</span> <span class="m">44%</span><span class="p">,</span> <span class="m">51%</span> <span class="m">8%</span><span class="p">,</span> <span class="m">3%</span> <span class="m">45%</span><span class="p">);</span>
-  <span class="nl">background</span><span class="p">:</span> <span class="n">linear-gradient</span><span class="p">(</span><span class="m">269deg</span><span class="p">,</span> <span class="m">#ff90f1</span><span class="p">,</span> <span class="m">#27ff8f</span><span class="p">,</span> <span class="m">#6db0ff</span><span class="p">,</span> <span class="m">#a398ff</span><span class="p">);</span>
-  <span class="nl">background-size</span><span class="p">:</span> <span class="m">800%</span> <span class="m">800%</span><span class="p">;</span>
-  <span class="nl">animation</span><span class="p">:</span> <span class="n">partyLights</span> <span class="m">5s</span> <span class="n">ease</span> <span class="n">infinite</span><span class="p">;</span>
-  <span class="nl">min-height</span><span class="p">:</span> <span class="m">12em</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">houseParty</span> <span class="p">{</span>
+    <span class="kp">-webkit-</span><span class="k">clip-path</span><span class="p">:</span> <span class="nb">polygon</span><span class="p">(</span><span class="mi">2</span><span class="kt">%</span> <span class="mi">97</span><span class="kt">%</span><span class="p">,</span> <span class="mi">98</span><span class="kt">%</span> <span class="mi">97</span><span class="kt">%</span><span class="p">,</span> <span class="mi">98</span><span class="kt">%</span> <span class="mi">44</span><span class="kt">%</span><span class="p">,</span> <span class="mi">51</span><span class="kt">%</span> <span class="mi">8</span><span class="kt">%</span><span class="p">,</span> <span class="mi">3</span><span class="kt">%</span> <span class="mi">45</span><span class="kt">%</span><span class="p">);</span>
+  <span class="k">clip-path</span><span class="p">:</span> <span class="nb">polygon</span><span class="p">(</span><span class="mi">2</span><span class="kt">%</span> <span class="mi">97</span><span class="kt">%</span><span class="p">,</span> <span class="mi">98</span><span class="kt">%</span> <span class="mi">97</span><span class="kt">%</span><span class="p">,</span> <span class="mi">98</span><span class="kt">%</span> <span class="mi">44</span><span class="kt">%</span><span class="p">,</span> <span class="mi">51</span><span class="kt">%</span> <span class="mi">8</span><span class="kt">%</span><span class="p">,</span> <span class="mi">3</span><span class="kt">%</span> <span class="mi">45</span><span class="kt">%</span><span class="p">);</span>
+  <span class="k">background</span><span class="p">:</span> <span class="nb">linear-gradient</span><span class="p">(</span><span class="mi">269</span><span class="kt">deg</span><span class="p">,</span> <span class="mh">#ff90f1</span><span class="p">,</span> <span class="mh">#27ff8f</span><span class="p">,</span> <span class="mh">#6db0ff</span><span class="p">,</span> <span class="mh">#a398ff</span><span class="p">);</span>
+  <span class="k">background-size</span><span class="p">:</span> <span class="mi">800</span><span class="kt">%</span> <span class="mi">800</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">animation</span><span class="p">:</span> <span class="n">partyLights</span> <span class="mi">5</span><span class="kt">s</span> <span class="kc">ease</span> <span class="kc">infinite</span><span class="p">;</span>
+  <span class="k">min-height</span><span class="p">:</span> <span class="mi">12</span><span class="kt">em</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.house</span> <span class="p">{</span>
-  <span class="nl">clip-path</span><span class="p">:</span> <span class="n">polygon</span><span class="p">(</span><span class="m">2%</span> <span class="m">97%</span><span class="p">,</span> <span class="m">98%</span> <span class="m">97%</span><span class="p">,</span> <span class="m">98%</span> <span class="m">44%</span><span class="p">,</span> <span class="m">51%</span> <span class="m">8%</span><span class="p">,</span> <span class="m">3%</span> <span class="m">45%</span><span class="p">);</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#474747</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="m">10em</span> <span class="m">2em</span> <span class="m">2em</span> <span class="m">2em</span><span class="p">;</span>
-  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
-  <span class="nl">min-height</span><span class="p">:</span> <span class="m">35vh</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">house</span> <span class="p">{</span>
+  <span class="k">clip-path</span><span class="p">:</span> <span class="nb">polygon</span><span class="p">(</span><span class="mi">2</span><span class="kt">%</span> <span class="mi">97</span><span class="kt">%</span><span class="p">,</span> <span class="mi">98</span><span class="kt">%</span> <span class="mi">97</span><span class="kt">%</span><span class="p">,</span> <span class="mi">98</span><span class="kt">%</span> <span class="mi">44</span><span class="kt">%</span><span class="p">,</span> <span class="mi">51</span><span class="kt">%</span> <span class="mi">8</span><span class="kt">%</span><span class="p">,</span> <span class="mi">3</span><span class="kt">%</span> <span class="mi">45</span><span class="kt">%</span><span class="p">);</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#474747</span><span class="p">;</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">10</span><span class="kt">em</span> <span class="mi">2</span><span class="kt">em</span> <span class="mi">2</span><span class="kt">em</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">min-height</span><span class="p">:</span> <span class="mi">35</span><span class="kt">vh</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.container</span> <span class="p">{</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">50vw</span><span class="p">;</span>
-  <span class="nl">margin-left</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-  <span class="nl">margin-right</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">10%</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">50</span><span class="kt">vw</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">margin-right</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="p">:</span> <span class="mi">10</span><span class="kt">%</span><span class="p">;</span>
 
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
-  <span class="nl">transition</span><span class="p">:</span> <span class="n">filter</span> <span class="m">.7s</span> <span class="n">ease-in-out</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+  <span class="k">transition</span><span class="p">:</span> <span class="k">filter</span> <span class="mf">.7</span><span class="kt">s</span> <span class="kc">ease-in-out</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.container</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="nl">content</span><span class="p">:</span> <span class="s2">''</span><span class="p">;</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(//goo.gl/8f5GrX)</span><span class="p">;</span>
-  <span class="nl">background-position</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
-  <span class="nl">background-size</span><span class="p">:</span> <span class="m">95%</span><span class="p">;</span>
-  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">no-repeat</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">45%</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">45%</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">999</span><span class="p">;</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">47%</span><span class="p">;</span>
-  <span class="nl">top</span><span class="p">:</span> <span class="m">-9%</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">container</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+  <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">//goo.gl/8f5GrX</span><span class="p">);</span>
+  <span class="k">background-position</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">background-size</span><span class="p">:</span> <span class="mi">95</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">background-repeat</span><span class="p">:</span> <span class="kc">no-repeat</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">45</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">45</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="p">:</span> <span class="mi">999</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span> <span class="mi">47</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">top</span><span class="p">:</span> <span class="mi">-9</span><span class="kt">%</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.room</span> <span class="p">{</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">padding</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
-  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">2.5em</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">room</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mf">2.5</span><span class="kt">em</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.message</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">19em</span><span class="p">;</span>
-  <span class="nl">height</span><span class="p">:</span> <span class="m">11em</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">999</span><span class="p">;</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">4.5em</span><span class="p">;</span>
-  <span class="nl">top</span><span class="p">:</span> <span class="m">7.5em</span><span class="p">;</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
-  <span class="nl">font-weight</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">27px</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">message</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">19</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">11</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="p">:</span> <span class="mi">999</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span> <span class="mf">4.5</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">top</span><span class="p">:</span> <span class="mf">7.5</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="p">:</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="k">font-family</span><span class="p">:</span> <span class="n">helvetica</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="mi">27</span><span class="kt">px</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nt">a</span><span class="o">,</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span> <span class="nt">a</span><span class="nd">:active</span><span class="o">,</span> <span class="nt">a</span><span class="nd">:visited</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">93</span><span class="p">,</span> <span class="m">245</span><span class="p">,</span> <span class="m">255</span><span class="p">);</span>
-  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="nt">a</span><span class="o">,</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span><span class="o">,</span> <span class="nt">a</span><span class="p">:</span><span class="nd">active</span><span class="o">,</span> <span class="nt">a</span><span class="p">:</span><span class="nd">visited</span> <span class="p">{</span>
+  <span class="k">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">93</span><span class="p">,</span> <span class="mi">245</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+  <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
-<p>Create a file named: <code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/src/styles/guest-list.css</code>. Copy
+</code></pre></div>
+<p>Create a file named: <code>&lt;your-awesome-component&gt;/src/styles/guest-list.css</code>. Copy
 the code from below into this file:</p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span></span><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(//</span><span class="nt">netdna</span><span class="p">.</span><span class="nc">bootstrapcdn</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">font-awesome</span><span class="o">/</span><span class="nt">3</span><span class="p">.</span><span class="nc">2</span><span class="p">.</span><span class="nc">1</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">font-awesome</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="sx">url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css)</span><span class="p">;</span>
-
-<span class="nt">label</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="o">+</span> <span class="nt">label</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+<span class="nt">label</span> <span class="p">{</span> <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="p">{</span> <span class="k">display</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="o">+</span> <span class="nt">label</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="p">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="o">+</span> <span class="nt">label</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">"\f096"</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="o">+</span> <span class="nt">label</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">letter-spacing</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span><span class="nd">:checked</span> <span class="o">+</span> <span class="nt">label</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">"\f046"</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span><span class="nd">:checked</span> <span class="o">+</span> <span class="nt">label</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">letter-spacing</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="o">+</span> <span class="nt">label</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span> <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;\f096&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span> <span class="o">+</span> <span class="nt">label</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span> <span class="k">letter-spacing</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span><span class="p">:</span><span class="nd">checked</span> <span class="o">+</span> <span class="nt">label</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span> <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;\f046&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">checkbox</span><span class="o">]</span><span class="p">:</span><span class="nd">checked</span> <span class="o">+</span> <span class="nt">label</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span> <span class="k">letter-spacing</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
 
-<span class="nc">.guestList</span> <span class="p">{</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">999</span><span class="p">;</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0.93</span><span class="p">);</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">10%</span><span class="p">;</span>
-  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">whitesmoke</span><span class="p">;</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
-  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">4em</span><span class="p">;</span>
-  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">4em</span><span class="p">;</span>
-  <span class="nl">padding-bottom</span><span class="p">:</span> <span class="m">3em</span><span class="p">;</span>
-  <span class="nl">padding-top</span><span class="p">:</span> <span class="m">1.7em</span><span class="p">;</span>
-  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="nl">margin</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.guestList</span> <span class="nt">h1</span> <span class="p">{</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">2.5em</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">guestList</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="p">:</span> <span class="mi">999</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.93</span><span class="p">);</span>
+  <span class="k">left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">border</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="kc">solid</span> <span class="kc">whitesmoke</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">4</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">4</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">padding-bottom</span><span class="p">:</span> <span class="mi">3</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">padding-top</span><span class="p">:</span> <span class="mf">1.7</span><span class="kt">em</span><span class="p">;</span>
+  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.guestName</span> <span class="p">{</span>
-  <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">.5em</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">guestList</span> <span class="nt">h1</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="mf">2.5</span><span class="kt">em</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
 
-<p>Create a file named: <code class="language-plaintext highlighter-rouge">&lt;your-awesome-component&gt;/src/styles/render-friend.css</code>.
+<span class="p">.</span><span class="nc">guestName</span> <span class="p">{</span>
+  <span class="k">margin-bottom</span><span class="p">:</span> <span class="mf">.5</span><span class="kt">em</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Create a file named: <code>&lt;your-awesome-component&gt;/src/styles/render-friend.css</code>.
 Copy the code from below into this file:</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@keyframes</span> <span class="n">shake</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span></span><span class="p">@</span><span class="k">keyframes</span> <span class="nt">shake</span> <span class="p">{</span>
   <span class="nt">from</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="err">10</span><span class="o">%,</span> <span class="err">20</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">.9</span><span class="p">,</span> <span class="m">.9</span><span class="p">,</span> <span class="m">.9</span><span class="p">)</span> <span class="n">rotate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-3deg</span><span class="p">);</span>
+  <span class="nt">10</span><span class="o">%,</span> <span class="nt">20</span><span class="o">%</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="mf">.9</span><span class="p">)</span> <span class="nb">rotate3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">-3</span><span class="kt">deg</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="err">30</span><span class="o">%,</span> <span class="err">50</span><span class="o">%,</span> <span class="err">70</span><span class="o">%,</span> <span class="err">90</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">)</span> <span class="n">rotate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3deg</span><span class="p">);</span>
+  <span class="nt">30</span><span class="o">%,</span> <span class="nt">50</span><span class="o">%,</span> <span class="nt">70</span><span class="o">%,</span> <span class="nt">90</span><span class="o">%</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span> <span class="nb">rotate3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="kt">deg</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="err">40</span><span class="o">%,</span> <span class="err">60</span><span class="o">%,</span> <span class="err">80</span><span class="o">%</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">,</span> <span class="m">1.1</span><span class="p">)</span> <span class="n">rotate3d</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">-3deg</span><span class="p">);</span>
+  <span class="nt">40</span><span class="o">%,</span> <span class="nt">60</span><span class="o">%,</span> <span class="nt">80</span><span class="o">%</span> <span class="p">{</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span> <span class="nb">rotate3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">-3</span><span class="kt">deg</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="nt">to</span> <span class="p">{</span>
-    <span class="nl">transform</span><span class="p">:</span> <span class="n">scale3d</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+    <span class="k">transform</span><span class="p">:</span> <span class="nb">scale3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nc">.join</span> <span class="p">{</span>
-  <span class="nl">animation-name</span><span class="p">:</span> <span class="n">shake</span><span class="p">;</span>
-  <span class="nl">animation-duration</span><span class="p">:</span> <span class="m">1s</span><span class="p">;</span>
-  <span class="nl">animation-fill-mode</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">join</span> <span class="p">{</span>
+  <span class="k">animation-name</span><span class="p">:</span> <span class="n">shake</span><span class="p">;</span>
+  <span class="k">animation-duration</span><span class="p">:</span> <span class="mi">1</span><span class="kt">s</span><span class="p">;</span>
+  <span class="k">animation-fill-mode</span><span class="p">:</span> <span class="kc">both</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.friend</span> <span class="p">{</span>
-  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#efefef</span><span class="p">;</span>
-  <span class="nl">background-repeat</span><span class="p">:</span> <span class="nb">no-repeat</span><span class="p">;</span>
-  <span class="nl">background-position</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
-  <span class="nl">background-size</span><span class="p">:</span> <span class="m">60%</span><span class="p">;</span>
-  <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">friend</span> <span class="p">{</span>
+  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#efefef</span><span class="p">;</span>
+  <span class="k">background-repeat</span><span class="p">:</span> <span class="kc">no-repeat</span><span class="p">;</span>
+  <span class="k">background-position</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">background-size</span><span class="p">:</span> <span class="mi">60</span><span class="kt">%</span><span class="p">;</span>
+  <span class="k">float</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></div>
-
+</code></pre></div>
 
     
 

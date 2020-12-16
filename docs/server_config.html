@@ -2102,48 +2102,42 @@
     <h1>Server Config</h1>
     <div class="subHeader"></div>
 
-    <h3 id="server-config-and-confippet">Server Config and Confippet</h3>
-
-<p>Out of the box we’re given <a href="https://github.com/electrode-io/electrode-confippet">Confippet</a>, a versatile utility for managing your
+    <h3><a class="anchor" name="server-config-and-confippet"></a>Server Config and Confippet <a class="hash-link" href="#server-config-and-confippet">#</a></h3>
+<p>Out of the box we&#39;re given <a href="https://github.com/electrode-io/electrode-confippet">Confippet</a>, a versatile utility for managing your
 NodeJS application configuration. Its goal is customization and extensibility,
 but it offers a preset config out of the box inside <strong>Your Awesome (Electrode)
 App</strong>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>config
     ├── default.json
     ├── development.json
     └── production.json
-</code></pre></div></div>
+</code></pre></div>
+<p>We&#39;ll need to extend our default.json to include our <code>friends</code> plugin and module
+<code>./src/server/plugins/friends</code>.</p>
 
-<p>We’ll need to extend our default.json to include our <code class="language-plaintext highlighter-rouge">friends</code> plugin and module
-<code class="language-plaintext highlighter-rouge">./src/server/plugins/friends</code>.</p>
-
-<p>Navigate to <code class="language-plaintext highlighter-rouge">&lt;your-awesome-app&gt;/config/development.json</code>. Copy, paste and save
-<code class="language-plaintext highlighter-rouge">friends</code> plugin:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"plugins"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"friends"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./src/server/plugins/friends"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
+<p>Navigate to <code>&lt;your-awesome-app&gt;/config/development.json</code>. Copy, paste and save
+<code>friends</code> plugin:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="p">{</span>
+  <span class="nt">&quot;plugins&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;friends&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;./src/server/plugins/friends&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>You can learn more about Confippet and ways to extend your config in our
 Advanced Electrode App with the <a href="https://github.com/electrode-io/electrode-confippet">Confippet</a> stand alone module.</p>
 
 <p>We should update our app test to reflect the changes we have made. Navigate to
-<code class="language-plaintext highlighter-rouge">&lt;your-awesome-app&gt;/test/client/components/home.spec.jsx</code>. Override the existing
+<code>&lt;your-awesome-app&gt;/test/client/components/home.spec.jsx</code>. Override the existing
 code by copying and pasting the code below:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;isomorphic-fetch&quot;</span><span class="p">);</span>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">isomorphic-fetch</span><span class="dl">"</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&quot;react&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">ReactDOM</span> <span class="nx">from</span> <span class="s2">&quot;react-dom&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Home</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;client/components/home&quot;</span><span class="p">;</span>
 
-<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom</span><span class="dl">"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Home</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">client/components/home</span><span class="dl">"</span><span class="p">;</span>
-
-<span class="kd">class</span> <span class="nx">ChildComponent</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+<span class="kr">class</span> <span class="nx">ChildComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
   <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span>
       <span class="o">&lt;</span><span class="nx">div</span> <span class="o">/&gt;</span>
@@ -2151,63 +2145,59 @@ code by copying and pasting the code below:</p>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">Home</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;Home&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nx">component</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">container</span><span class="p">;</span>
   <span class="kd">let</span> <span class="nx">location</span><span class="p">;</span>
 
-  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
-    <span class="nx">location</span> <span class="o">=</span> <span class="p">{</span> <span class="na">pathname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/</span><span class="dl">"</span> <span class="p">};</span>
+  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">);</span>
+    <span class="nx">location</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">pathname</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span> <span class="p">};</span>
   <span class="p">});</span>
 
-  <span class="nx">it</span><span class="p">(</span><span class="dl">"</span><span class="s2">has expected content with deep render</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s2">&quot;has expected content with deep render&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">component</span> <span class="o">=</span> <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
       <span class="o">&lt;</span><span class="nx">Home</span> <span class="nx">location</span><span class="o">=</span><span class="p">{</span><span class="nx">location</span><span class="p">}</span><span class="o">&gt;</span>
         <span class="o">&lt;</span><span class="nx">ChildComponent</span> <span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="sr">/Home&gt;</span><span class="err">,
-</span>      <span class="nx">container</span><span class="p">);</span>
+      <span class="o">&lt;</span><span class="err">/Home&gt;,</span>
+      <span class="nx">container</span><span class="p">);</span>
     <span class="nx">expect</span><span class="p">(</span><span class="nx">component</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">not</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">false</span><span class="p">;</span>
   <span class="p">});</span>
 <span class="p">});</span>
-</code></pre></div></div>
+</code></pre></div>
+<p>Let&#39;s check it out! We&#39;ll run through our steps to test, run the app and view it
+in the browser. We&#39;ll need your GitHub API token as well:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ gulp check
+$ <span class="nv">token</span><span class="o">=</span><span class="s1">&#39;your-token-here&#39;</span> gulp hot
+</code></pre></div>
+<p>Navigate to <code>localhost:3000</code>. Check it out! This is the <code>Index route</code> which
+renders our <code>Home component</code> using Server Side Rendering:</p>
 
-<p>Let’s check it out! We’ll run through our steps to test, run the app and view it
-in the browser. We’ll need your GitHub API token as well:</p>
+<p><img src="/img/app-home-view.png" alt="app-home-view"></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gulp check
-<span class="nv">$ token</span><span class="o">=</span><span class="s1">'your-token-here'</span> gulp hot
-</code></pre></div></div>
+<p>When you click the <code>Click Here to Make it a Party</code> link, Your Awesome App routes
+to the <code>/invite</code> route, which renders the guest list component.</p>
 
-<p>Navigate to <code class="language-plaintext highlighter-rouge">localhost:3000</code>. Check it out! This is the <code class="language-plaintext highlighter-rouge">Index route</code> which
-renders our <code class="language-plaintext highlighter-rouge">Home component</code> using Server Side Rendering:</p>
+<p><img src="/img/app-guest-list-view.png" alt="app-guest-list"></p>
 
-<p><img src="/img/app-home-view.png" alt="app-home-view" /></p>
-
-<p>When you click the <code class="language-plaintext highlighter-rouge">Click Here to Make it a Party</code> link, Your Awesome App routes
-to the <code class="language-plaintext highlighter-rouge">/invite</code> route, which renders the guest list component.</p>
-
-<p><img src="/img/app-guest-list-view.png" alt="app-guest-list" /></p>
-
-<p>By checking the guest list, you are setting the invitee object’s key
-to <code class="language-plaintext highlighter-rouge">{invited: true}</code>, which tells <code class="language-plaintext highlighter-rouge">renderFriends</code> to render.</p>
+<p>By checking the guest list, you are setting the invitee object&#39;s key
+to <code>{invited: true}</code>, which tells <code>renderFriends</code> to render.</p>
 
 <p>When all of our guests are invited to the House Party, our CSS modules kick in
 and launch an Electrode House Party!</p>
 
-<p><img src="/img/party-collabos.png" alt="app-party-view" /></p>
+<p><img src="/img/party-collabos.png" alt="app-party-view"></p>
 
 <p>Feel free to add your own personal touch and build out your Resource List House
 Party. You can compare your work to our <a href="https://electrode-example-app.herokuapp.com/">Heroku deployed example app</a>.</p>
 
-<p>When you’re ready, you can deploy Your Awesome App to <a href="https://devcenter.heroku.com/categories/deployment">Heroku</a> by following the
+<p>When you&#39;re ready, you can deploy Your Awesome App to <a href="https://devcenter.heroku.com/categories/deployment">Heroku</a> by following the
 previous steps in our <a href="build_component.html">Getting Started: Build More</a> section. If you choose this
 step, make sure you set all of the Heroku configurations, including the one for
 our <a href="build_server_plugin.">GitHub Api</a>.</p>
 
 <p>You can also navigate to <a href="more_deployments.html">Intermediate: More Deployments</a> to learn how to deploy
 with <a href="docker.html">Docker</a> and <a href="kubernetes.html">Kubernetes</a>.</p>
-
 
 
     

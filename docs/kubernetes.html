@@ -2102,62 +2102,48 @@
     <h1>Kubernetes</h1>
     <div class="subHeader"></div>
 
-    <h4 id="deploy-with-googles-kubernetes">Deploy with Google’s Kubernetes</h4>
-
+    <h4><a class="anchor" name="deploy-with-googles-kubernetes"></a>Deploy with Google&#39;s Kubernetes <a class="hash-link" href="#deploy-with-googles-kubernetes">#</a></h4>
 <p><a href="http://kubernetes.io/docs/user-guide/kubectl-overview/">Kubernetes</a> is an open-source system for automating deployment, scaling, and
 management of containerized applications. It was developed by Google to handle
 the ops demand for an organization of that scale and the flexibility to run an
 infrastructure at any size.</p>
 
-<p>To start, make sure you already have a <a href="https://accounts.google.com/SignUp">Google Account</a>. Sign in to the <a href="https://console.cloud.google.com/home/dashboard?project=gentle-waters-127300&amp;pli=1">Google
+<p>To start, make sure you already have a <a href="https://accounts.google.com/SignUp">Google Account</a>. Sign in to the <a href="https://console.cloud.google.com/home/dashboard?project=gentle-waters-127300&pli=1">Google
 Cloud Platform</a> and also sign up for a free trial on <a href="https://cloud.google.com/container-registry/">Google Container Registry</a>
 and create a new project. Remember your project ID and use it on your command
 line:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="s2">"your-project-id"</span>
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ <span class="nb">export</span> <span class="nv">PROJECT_ID</span><span class="o">=</span><span class="s2">&quot;your-project-id&quot;</span>
+</code></pre></div>
 <p>Install the <a href="https://cloud.google.com/sdk/">Google Cloud SDK</a>. Next, run the following command to install
 <a href="http://kubernetes.io/docs/user-guide/kubectl-overview/">Kubernetes</a>:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gcloud components <span class="nb">install </span>kubectl
-</code></pre></div></div>
-
-<p>We will use your <a href="docker.html">Docker image</a> from the “Deploy with Docker” section. Navigate
-to the docker <code class="language-plaintext highlighter-rouge">app</code> folder and update the Dockerfile to the following:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM node:4.5
-RUN npm i <span class="nt">-g</span> npm@3
-EXPOSE 3000
-RUN <span class="nb">mkdir</span> <span class="nt">-p</span> /usr/src/app
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ gcloud components install kubectl
+</code></pre></div>
+<p>We will use your <a href="docker.html">Docker image</a> from the &quot;Deploy with Docker&quot; section. Navigate
+to the docker <code>app</code> folder and update the Dockerfile to the following:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>FROM node:4.5
+RUN npm i -g npm@3
+EXPOSE <span class="m">3000</span>
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY <span class="nb">.</span> /usr/src/app
-RUN npm <span class="nb">install
-</span>RUN /usr/src/app/node_modules/.bin/gulp build
+COPY . /usr/src/app
+RUN npm install
+RUN /usr/src/app/node_modules/.bin/gulp build
 CMD node server
-</code></pre></div></div>
-
-<p>Let’s test out your image with Docker. Run the command below:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 3000:3000 docker-awesome-container
-</code></pre></div></div>
-
-<p>Visit your app in the browser at <code class="language-plaintext highlighter-rouge">http://localhost:3000</code>. You can stop running
+</code></pre></div>
+<p>Let&#39;s test out your image with Docker. Run the command below:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker run -d -p <span class="m">3000</span>:3000 docker-awesome-container
+</code></pre></div>
+<p>Visit your app in the browser at <code>http://localhost:3000</code>. You can stop running
 the container by using the command below:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker stop docker-awesome-container
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ docker stop docker-awesome-container
+</code></pre></div>
 <p>We can now push the image to the <a href="https://cloud.google.com/container-registry/">Google Container Registry</a>. Your Docker images
 will be stored in a private repo that is accessible from every Google Cloud
 project as well as from outside the Google Cloud Platform.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gcloud docker push gcr.io/<span class="nv">$PROJECT_ID</span>/docker-awesome-container:v1
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>$ gcloud docker push gcr.io/<span class="nv">$PROJECT_ID</span>/docker-awesome-container:v1
+</code></pre></div>
 <p>You can explore other <a href="http://kubernetes.io/docs/hellonode/">Kubernetes capabilities</a> and dig deeper in the extensive
 <a href="http://kubernetes.io/docs/reference/">reference documentation</a>.</p>
-
 
 
     

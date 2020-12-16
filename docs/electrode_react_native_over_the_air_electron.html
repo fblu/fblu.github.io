@@ -2102,68 +2102,59 @@
     <h1>React Native and Over the Air</h1>
     <div class="subHeader"></div>
 
-    <h2 id="electrode-over-the-air-server">Electrode Over the Air Server</h2>
+    <h2><a class="anchor" name="electrode-over-the-air-server"></a>Electrode Over the Air Server <a class="hash-link" href="#electrode-over-the-air-server">#</a></h2>
 <p>Electrode Over the Air (OTA) is a Microsoft(tm) Code Push compatible server for allowing mobile applications to update
 with or without user intervention.</p>
-
-<h3 id="prerequisites">Prerequisites</h3>
+<h3><a class="anchor" name="prerequisites"></a>Prerequisites <a class="hash-link" href="#prerequisites">#</a></h3>
 <ul>
-  <li>Node v6 or greater <a href="https://nodejs.org/en/download/current/">here</a>.</li>
-  <li>Apache Cassandra <a href="http://cassandra.apache.org/">here</a> and getting started <a href="http://cassandra.apache.org/doc/latest/getting_started/index.html">here</a></li>
-  <li>Github Account (if using github as auth provider) <a href="http://github.com">here</a></li>
+<li>Node v6 or greater <a href="https://nodejs.org/en/download/current/">here</a>.</li>
+<li>Apache Cassandra <a href="http://cassandra.apache.org/">here</a> and getting started <a href="http://cassandra.apache.org/doc/latest/getting_started/index.html">here</a></li>
+<li>Github Account (if using github as auth provider) <a href="http://github.com">here</a></li>
 </ul>
-
-<h3 id="running-cassandra">Running Cassandra</h3>
+<h3><a class="anchor" name="running-cassandra"></a>Running Cassandra <a class="hash-link" href="#running-cassandra">#</a></h3>
 <p>Books have been written about running and configuring cassandra, this is just the most minimal way you can run
-it.  Please read such books before running this server on a public network.</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl http://apache.mirrors.hoobly.com/cassandra/3.9/apache-cassandra-3.9-bin.tar.gz | <span class="nb">tar</span> <span class="nt">-xvzf</span> -
-<span class="nv">$ </span><span class="nb">cd </span>apache-cassandra-3.9/
-<span class="nv">$ </span>./bin/cassandra
-</code></pre></div></div>
-
-<h3 id="installation">Installation</h3>
+it.  Please read such books before running this server on a public network.
+<code>sh
+$ curl http://apache.mirrors.hoobly.com/cassandra/3.9/apache-cassandra-3.9-bin.tar.gz | tar -xvzf -
+$ cd apache-cassandra-3.9/
+$ ./bin/cassandra
+</code></p>
+<h3><a class="anchor" name="installation"></a>Installation <a class="hash-link" href="#installation">#</a></h3>
 <p>This covers a minimal way to install and run electrode-ota-server.  For most scenarios this is
 not complete.   Be sure to setup SSL, load balancing, and all the other requirements for your environment.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="nb">mkdir </span>your_ota
-  <span class="nv">$ </span><span class="nb">cd </span>your_ota
-  <span class="nv">$ </span>npm init
-  <span class="nv">$ </span>npm <span class="nb">install </span>electrode-ota-server <span class="nt">--save</span>
-  <span class="nv">$ </span><span class="nb">mkdir </span>config
-
-</code></pre></div></div>
-
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>  $ mkdir your_ota
+  $ <span class="nb">cd</span> your_ota
+  $ npm init
+  $ npm install electrode-ota-server --save
+  $ mkdir config
+</code></pre></div>
 <p>In package.json add
 By default the server will start with production config.  This can be overridden with NODE_ENV.</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="s2">&quot;scripts&quot;</span><span class="err">:</span><span class="p">{</span>
+  <span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;NODE_ENV=production node node_modules/.bin/electrode-ota-server&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;development&quot;</span><span class="p">:</span><span class="s2">&quot;NODE_ENV=development node node_modules/.bin/electrode-ota-server&quot;</span>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:{</span><span class="w">
-  </span><span class="nl">"start"</span><span class="p">:</span><span class="s2">"NODE_ENV=production node node_modules/.bin/electrode-ota-server"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"development"</span><span class="p">:</span><span class="s2">"NODE_ENV=development node node_modules/.bin/electrode-ota-server"</span><span class="w">
-
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h3 id="setting-up-oauth">Setting up OAuth</h3>
+<span class="p">}</span>
+</code></pre></div><h3><a class="anchor" name="setting-up-oauth"></a>Setting up OAuth <a class="hash-link" href="#setting-up-oauth">#</a></h3>
 <p>To use github as an OAuth provider you need to login to github and add an OTA Application.</p>
 
 <p>Step 1 - Login to github and select Settings.
-<img src="../img/electrode-ota/1-Profile.png" alt="OTA: Profile - Step 1" /></p>
+<img src="../img/electrode-ota/1-Profile.png" alt="OTA: Profile - Step 1"></p>
 
-<p>Step 2 - Go to “Developer Settings” and select “OAuth applications”
-<img src="../img/electrode-ota/2-Register-OAuth.png" alt="OTA: Register OAuth - Step 2" /></p>
+<p>Step 2 - Go to &quot;Developer Settings&quot; and select &quot;OAuth applications&quot;
+<img src="../img/electrode-ota/2-Register-OAuth.png" alt="OTA: Register OAuth - Step 2"></p>
 
 <p>Step 3 - Setup your application.   Keep in mind protocols and urls are important.  Also you can set up a key for development also (localhost.yourdomain.com).
 Make sure that resolves, for your machine, try adding it to your hosts file.  If you do not have a public server running
 you can add a use http://localhost:9001/ for homepage and authorization callback url., for development only.
-<img src="../img/electrode-ota/3-Register-OAuth.png" alt="OTA: Register OAuth - Step 3" /></p>
+<img src="../img/electrode-ota/3-Register-OAuth.png" alt="OTA: Register OAuth - Step 3"></p>
 
 <p>Step 4 - Wild celebration, or double check that everthing is correct.  This is your you get your clientId and clientSecret.
 Keep your clientSecret secret (avoid checking it into public github for example).</p>
 
-<p><img src="../img/electrode-ota/4-Review-OAuth.png" alt="OTA: Register OAuth - Step 4" /></p>
-
-<h3 id="configure-ota-server">Configure OTA Server</h3>
-<p>Inside the config create a <code class="language-plaintext highlighter-rouge">config/production.json</code>. You must configure at one environment. You can create
+<p><img src="../img/electrode-ota/4-Review-OAuth.png" alt="OTA: Register OAuth - Step 4"></p>
+<h3><a class="anchor" name="configure-ota-server"></a>Configure OTA Server <a class="hash-link" href="#configure-ota-server">#</a></h3>
+<p>Inside the config create a <code>config/production.json</code>. You must configure at one environment. You can create
 different settings for production,test and development, by creating seperate json files for each environment.</p>
 
 <p>In production please use TLS/HTTPS for the server.Setting TLS is outside the scope of this document.</p>
@@ -2172,60 +2163,59 @@ different settings for production,test and development, by creating seperate jso
 
 <p><strong>The variables that should be configured is are in &lt;%= variable %&gt;.</strong>
 <strong>The comments must be removed if using JSON.</strong></p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="p">{</span>
+    <span class="s2">&quot;plugins&quot;</span><span class="o">:</span> <span class="p">{</span>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">plugins</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-
-        <span class="dl">"</span><span class="s2">electrode-ota-server-dao-cassandra</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">options</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="c1">//You can enter an array of cassandra "contactPoints" but you need at least one.</span>
-                <span class="c1">// If you are running cassandra locally you can use "localhost".</span>
-                <span class="dl">"</span><span class="s2">contactPoints</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="dl">"</span><span class="s2">&lt;%=cassandra.hosts%&gt;</span><span class="dl">"</span>
+        <span class="s2">&quot;electrode-ota-server-dao-cassandra&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="c1">//You can enter an array of cassandra &quot;contactPoints&quot; but you need at least one.</span>
+                <span class="c1">// If you are running cassandra locally you can use &quot;localhost&quot;.</span>
+                <span class="s2">&quot;contactPoints&quot;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;&lt;%=cassandra.hosts%&gt;&quot;</span>
                 <span class="p">],</span>
                  <span class="c1">//Optional - If your cassandra server does not require a password</span>
-                <span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;%=cassandra.username%&gt;</span><span class="dl">"</span><span class="p">,</span>
+                <span class="s2">&quot;username&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;%=cassandra.username%&gt;&quot;</span><span class="p">,</span>
                 <span class="c1">//Optional - If your cassandra server does not require a password</span>
-                <span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;%=cassandra.password%&gt;</span><span class="dl">"</span>
-                <span class="c1">//Optional the keyspace you want to run the server with, by default the keyspace is "wm_ota".</span>
-                <span class="dl">"</span><span class="s2">keyspace</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">&lt;%=cassandra.keyspace%&gt;</span><span class="dl">"</span>
+                <span class="s2">&quot;password&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;%=cassandra.password%&gt;&quot;</span>
+                <span class="c1">//Optional the keyspace you want to run the server with, by default the keyspace is &quot;wm_ota&quot;.</span>
+                <span class="s2">&quot;keyspace&quot;</span><span class="o">:</span><span class="s2">&quot;&lt;%=cassandra.keyspace%&gt;&quot;</span>
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="c1">//This allows for other fileservice mechanisms to be plugged in.  Currently the files are stored</span>
         <span class="c1">// in the cassandra db, but the could be stored in anything really, including the filesystem.</span>
-        <span class="dl">"</span><span class="s2">electrode-ota-server-fileservice</span><span class="dl">"</span><span class="p">:{</span>
-              <span class="dl">"</span><span class="s2">options</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;electrode-ota-server-fileservice&quot;</span><span class="o">:</span><span class="p">{</span>
+              <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
                 <span class="c1">//this needs to be the url of your acquistion server.  It can be the same as your current</span>
                 <span class="c1">// management server.</span>
-                <span class="dl">"</span><span class="s2">downloadUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">http://&lt;%=your_ota_server%&gt;/storagev2/</span><span class="dl">"</span>
+                <span class="s2">&quot;downloadUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;http://&lt;%=your_ota_server%&gt;/storagev2/&quot;</span>
               <span class="p">}</span>
         <span class="p">},</span>
-        <span class="dl">"</span><span class="s2">electrode-ota-server-auth</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">options</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">strategy</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;electrode-ota-server-auth&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s2">&quot;strategy&quot;</span><span class="o">:</span> <span class="p">{</span>
                     <span class="c1">//Authentication Strategy.  The OTA uses [bell](http://https://github.com/hapijs/bell) for</span>
                     <span class="c1">//OAuth.  You can see the vendors and options there.  We test with github oAuth.</span>
 
-                    <span class="dl">"</span><span class="s2">github-oauth</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="dl">"</span><span class="s2">options</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;github-oauth&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
                             <span class="c1">//A Cookie password otherwise a raondom one (Optional)</span>
-                            <span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">&lt;%= another cookie password%&gt;</span><span class="dl">"</span><span class="p">,</span>
+                            <span class="s2">&quot;password&quot;</span><span class="o">:</span><span class="s2">&quot;&lt;%= another cookie password%&gt;&quot;</span><span class="p">,</span>
                              <span class="c1">//This is true by default if not running https change to false.   You should run over https though</span>
-                            <span class="dl">"</span><span class="s2">isSecure</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+                            <span class="s2">&quot;isSecure&quot;</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
                             <span class="c1">//The callback hostname of your server.   If you are running behind a proxy,</span>
                             <span class="c1">//it may be different than what the server thinks it is. (Optional)</span>
-                            <span class="dl">"</span><span class="s2">location</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">&lt;%= the address of your server %&gt;</span><span class="dl">"</span><span class="p">,</span>
+                            <span class="s2">&quot;location&quot;</span><span class="o">:</span><span class="s2">&quot;&lt;%= the address of your server %&gt;&quot;</span><span class="p">,</span>
                             <span class="c1">//Get the Oauth info from github.</span>
-                            <span class="dl">"</span><span class="s2">clientId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;%=github oauth clientId%&gt;</span><span class="dl">"</span><span class="p">,</span>
-                            <span class="dl">"</span><span class="s2">clientSecret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;%=github oauth clientSecret%&gt;</span><span class="dl">"</span>
+                            <span class="s2">&quot;clientId&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;%=github oauth clientId%&gt;&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;clientSecret&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;%=github oauth clientSecret%&gt;&quot;</span>
                         <span class="p">}</span>
                     <span class="p">},</span>
-                   <span class="dl">"</span><span class="s2">session</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="dl">"</span><span class="s2">options</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+                   <span class="s2">&quot;session&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;options&quot;</span><span class="o">:</span> <span class="p">{</span>
                             <span class="c1">//A Cookie password otherwise a raondom one (Optional)</span>
-                            <span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">&lt;%= another cookie password%&gt;</span><span class="dl">"</span><span class="p">,</span>
+                            <span class="s2">&quot;password&quot;</span><span class="o">:</span><span class="s2">&quot;&lt;%= another cookie password%&gt;&quot;</span><span class="p">,</span>
                              <span class="c1">//This is true by default if not running https change to false.   You should run over https though</span>
-                            <span class="dl">"</span><span class="s2">isSecure</span><span class="dl">"</span><span class="p">:</span><span class="kc">true</span>
+                            <span class="s2">&quot;isSecure&quot;</span><span class="o">:</span><span class="kc">true</span>
                         <span class="p">}</span>
                    <span class="p">}</span>
 
@@ -2234,49 +2224,40 @@ different settings for production,test and development, by creating seperate jso
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-
-</code></pre></div></div>
+</code></pre></div>
 <p>OTA uses <a href="http://https://github.com/hapijs/bell">bell</a> for oAuth you can look there for more configuration options.</p>
-
-<h3 id="running-ota">Running OTA</h3>
-<p>You can run OTA many ways, the easiest is to just to run.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ npm start
-</code></pre></div></div>
-
-<h2 id="logging-into-your-ota-server">Logging into your OTA Server.</h2>
+<h3><a class="anchor" name="running-ota"></a>Running OTA <a class="hash-link" href="#running-ota">#</a></h3>
+<p>You can run OTA many ways, the easiest is to just to run.
+<code>
+ $ npm start
+</code></p>
+<h2><a class="anchor" name="logging-into-your-ota-server."></a>Logging into your OTA Server. <a class="hash-link" href="#logging-into-your-ota-server.">#</a></h2>
 <p>To use the server you just set up you will need to make the following modifications to your client (iOS/Android(tm)) app, along
 with setting up Apps with the OTA Server. Your server can host multiple applications from multiple developers, to manage
-these you can use Microsoft’s code-push cli.</p>
-
-<h3 id="from-the-command-line">From the Command Line</h3>
+these you can use Microsoft&#39;s code-push cli.</p>
+<h3><a class="anchor" name="from-the-command-line"></a>From the Command Line <a class="hash-link" href="#from-the-command-line">#</a></h3>
 <p>If want to manage your OTA Server via command line.   You can follow these directions.  Or you can use the Electrode
 OTA Desktop to do the same thing.</p>
-
-<h4 id="installing-the-code-push-cli">Installing the code-push-cli</h4>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>npm <span class="nb">install </span>code-push-cli <span class="nt">-g</span>
-
-</code></pre></div></div>
-<h4 id="register">Register</h4>
-<p>You only need/can register once per github account.  So the first time each user would need to:</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>code-push register https://&lt;%<span class="o">=</span>your_ota_server%&gt;
-</code></pre></div></div>
-
-<h4 id="login">Login</h4>
-<p>After you have registered if you’ve logged out you may need to log back in, or your acccess-key is lost or expired you
-can log back in.</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>code-push login https://&lt;%<span class="o">=</span>your_ota_server%&gt;
-</code></pre></div></div>
-
-<h4 id="server-token">Server Token</h4>
+<h4><a class="anchor" name="installing-the-code-push-cli"></a>Installing the code-push-cli <a class="hash-link" href="#installing-the-code-push-cli">#</a></h4><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span> $ npm install code-push-cli -g
+</code></pre></div><h4><a class="anchor" name="register"></a>Register <a class="hash-link" href="#register">#</a></h4>
+<p>You only need/can register once per github account.  So the first time each user would need to:
+<code>sh
+ $ code-push register https://&lt;%=your_ota_server%&gt;
+</code></p>
+<h4><a class="anchor" name="login"></a>Login <a class="hash-link" href="#login">#</a></h4>
+<p>After you have registered if you&#39;ve logged out you may need to log back in, or your acccess-key is lost or expired you
+can log back in.
+<code>sh
+ $ code-push login https://&lt;%=your_ota_server%&gt;
+</code></p>
+<h4><a class="anchor" name="server-token"></a>Server Token <a class="hash-link" href="#server-token">#</a></h4>
 <p>Your server token page should look like this.
- <img src="../img/electrode-ota/NewToken.png" alt="OTA: Server Token" /></p>
-
-<h4 id="creating-a-codepushdeploymentkey">Creating a CodePushDeploymentKey</h4>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ code-push app add &lt;%=YourAppName%&gt;
-</code></pre></div></div>
-
-<p>Should result in something like</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Successfully added the <span class="s2">"YourAppName"</span> app, along with the following default deployments:
+ <img src="../img/electrode-ota/NewToken.png" alt="OTA: Server Token"></p>
+<h4><a class="anchor" name="creating-a-codepushdeploymentkey"></a>Creating a CodePushDeploymentKey <a class="hash-link" href="#creating-a-codepushdeploymentkey">#</a></h4><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>$ code-push app add &lt;%=YourAppName%&gt;
+</code></pre></div>
+<p>Should result in something like
+<code>sh
+Successfully added the &quot;YourAppName&quot; app, along with the following default deployments:
 ┌────────────┬───────────────────────────────────────┐
 │ Name       │ Deployment Key                        │
 ├────────────┼───────────────────────────────────────┤
@@ -2284,101 +2265,90 @@ can log back in.</p>
 ├────────────┼───────────────────────────────────────┤
 │ Staging    │ ASDASDASDASDASDASDASDASDASDASDASDASD- │
 └────────────┴───────────────────────────────────────┘
-</code></pre></div></div>
-<p>These are your deployment keys.  You will need them in the next step.</p>
-
-<h2 id="changes-to-your-application">Changes to Your Application.</h2>
+</code>
+These are your deployment keys.  You will need them in the next step.</p>
+<h2><a class="anchor" name="changes-to-your-application."></a>Changes to Your Application. <a class="hash-link" href="#changes-to-your-application.">#</a></h2>
 <p>If your app is already using code-push you just need to do the following.   If you have not setup your app for code-push,
-please follow Microsoft™’s guide to setting up the client SDK for React™ <a href="https://microsoft.github.io/code-push/docs/react-native.html">here</a> or
-Cordova™ <a href="https://microsoft.github.io/code-push/docs/cordova.html">here</a>.</p>
+please follow Microsoft&#8482;&#39;s guide to setting up the client SDK for React&#8482; <a href="https://microsoft.github.io/code-push/docs/react-native.html">here</a> or
+Cordova&#8482; <a href="https://microsoft.github.io/code-push/docs/cordova.html">here</a>.</p>
 
 <p>If you you need an Example application you can find one <a href="https://github.com/Microsoft/react-native-code-push/tree/master/Examples/CodePushDemoApp">here</a>.</p>
-
-<h3 id="for-ios">For IOS</h3>
-<p>Then add the following to <code class="language-plaintext highlighter-rouge">ios/&lt;%=your_app_name%&gt;/Info.plist</code>. You can open this in <code class="language-plaintext highlighter-rouge">sh open ios/&lt;%=your_app_name%&gt;.xcodeprog</code>
+<h3><a class="anchor" name="for-ios"></a>For IOS <a class="hash-link" href="#for-ios">#</a></h3>
+<p>Then add the following to <code>ios/&lt;%=your_app_name%&gt;/Info.plist</code>. You can open this in <code>sh open ios/&lt;%=your_app_name%&gt;.xcodeprog</code>
 to edit.
- <img src="../img/electrode-ota/Info-plist.png" alt="OTA: Edit Info.plist" /></p>
+ <img src="../img/electrode-ota/Info-plist.png" alt="OTA: Edit Info.plist"></p>
 
-<p>Or using your favorite text editor.</p>
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;key&gt;</span>CodePushDeploymentKey<span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;string&gt;</span><span class="err">&lt;</span>%=your_deployment_key%&gt;<span class="nt">&lt;/string&gt;</span>
-    <span class="nt">&lt;key&gt;</span>CodePushServerURL<span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;string&gt;</span>http://<span class="err">&lt;</span>%=your_ota_server%&gt;<span class="nt">&lt;/string&gt;</span>
-</code></pre></div></div>
-<p>If your OTA server is not running over https you will need to add an exception to it in the  <code class="language-plaintext highlighter-rouge">ios/&lt;%=your_app_name%&gt;/Info.plist</code>,
-or you use Xcode to update the file.</p>
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dict&gt;</span>
-	<span class="nt">&lt;key&gt;</span>NSAllowsArbitraryLoads<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;true/&gt;</span>
-	<span class="nt">&lt;key&gt;</span>NSExceptionDomains<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;dict&gt;</span>
-		<span class="nt">&lt;key&gt;</span><span class="err">&lt;</span>%=your_ota_server%&gt;<span class="nt">&lt;/key&gt;</span>
-		<span class="nt">&lt;dict&gt;</span>
-			<span class="nt">&lt;key&gt;</span>NSTemporaryExceptionAllowsInsecureHTTPLoads<span class="nt">&lt;/key&gt;</span>
-			<span class="nt">&lt;true/&gt;</span>
-		<span class="nt">&lt;/dict&gt;</span>
-	<span class="nt">&lt;/dict&gt;</span>
-<span class="nt">&lt;/dict&gt;</span>
-</code></pre></div></div>
-<h3 id="for-android">For Android</h3>
-<p>Modify  <code class="language-plaintext highlighter-rouge">android/app/src/main/java/com/&lt;%=your_app_name%&gt;/MainApplication.java</code></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cm">/**
-     * A list of packages used by the app. If the app uses additional views
-     * or modules besides the default ones, add more packages here.
-     **/</span>
+<p>Or using your favorite text editor.
+<code>xml
+    &lt;key&gt;CodePushDeploymentKey&lt;/key&gt;
+    &lt;string&gt;&lt;%=your_deployment_key%&gt;&lt;/string&gt;
+    &lt;key&gt;CodePushServerURL&lt;/key&gt;
+    &lt;string&gt;http://&lt;%=your_ota_server%&gt;&lt;/string&gt;
+</code>
+If your OTA server is not running over https you will need to add an exception to it in the  <code>ios/&lt;%=your_app_name%&gt;/Info.plist</code>,
+or you use Xcode to update the file.
+<code>xml
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;NSExceptionDomains&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;&lt;%=your_ota_server%&gt;&lt;/key&gt;
+        &lt;dict&gt;
+            &lt;key&gt;NSTemporaryExceptionAllowsInsecureHTTPLoads&lt;/key&gt;
+            &lt;true/&gt;
+        &lt;/dict&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+</code></p>
+<h3><a class="anchor" name="for-android"></a>For Android <a class="hash-link" href="#for-android">#</a></h3>
+<p>Modify  <code>android/app/src/main/java/com/&lt;%=your_app_name%&gt;/MainApplication.java</code></p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span></span>    <span class="cm">/**</span>
+<span class="cm">     * A list of packages used by the app. If the app uses additional views</span>
+<span class="cm">     * or modules besides the default ones, add more packages here.</span>
+<span class="cm">     **/</span>
     <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ReactPackage</span><span class="o">&gt;</span> <span class="nf">getPackages</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">Arrays</span><span class="o">.&lt;</span><span class="nc">ReactPackage</span><span class="o">&gt;</span><span class="n">asList</span><span class="o">(</span>
-                <span class="k">new</span> <span class="nf">MainReactPackage</span><span class="o">(),</span>
-                <span class="k">new</span> <span class="nf">CodePush</span><span class="o">(</span><span class="s">"&lt;%=your_ota_deployment_key%&gt;"</span><span class="o">,</span> <span class="k">this</span><span class="o">,</span> <span class="nc">BuildConfig</span><span class="o">.</span><span class="na">DEBUG</span><span class="o">,</span> <span class="s">"&lt;%=your_ota_server%&gt;"</span><span class="o">)</span>
+    <span class="kd">protected</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ReactPackage</span><span class="o">&gt;</span> <span class="nf">getPackages</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Arrays</span><span class="o">.&lt;</span><span class="n">ReactPackage</span><span class="o">&gt;</span><span class="n">asList</span><span class="o">(</span>
+                <span class="k">new</span> <span class="n">MainReactPackage</span><span class="o">(),</span>
+                <span class="k">new</span> <span class="n">CodePush</span><span class="o">(</span><span class="s">&quot;&lt;%=your_ota_deployment_key%&gt;&quot;</span><span class="o">,</span> <span class="k">this</span><span class="o">,</span> <span class="n">BuildConfig</span><span class="o">.</span><span class="na">DEBUG</span><span class="o">,</span> <span class="s">&quot;&lt;%=your_ota_server%&gt;&quot;</span><span class="o">)</span>
         <span class="o">);</span>
     <span class="o">}</span>
-
-</code></pre></div></div>
-
-<h3 id="publishing-react">Publishing (React)</h3>
-<p>To update the app over the air run.  See the Microsoft™ code-push docs for more information. On how to
-add CodePush to your application.</p>
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span><span class="nb">cd </span>your_client_app_dir
- <span class="nv">$ </span>code-push release-react &lt;%<span class="o">=</span>YourAppName%&gt; ios <span class="nt">--deploymentName</span> &lt;%<span class="o">=</span>Staging|Production|Etc.%&gt;
-</code></pre></div></div>
-
-<h2 id="electrode-over-the-air-desktop">Electrode Over the Air Desktop</h2>
+</code></pre></div><h3><a class="anchor" name="publishing-react"></a>Publishing (React) <a class="hash-link" href="#publishing-react">#</a></h3>
+<p>To update the app over the air run.  See the Microsoft&#8482; code-push docs for more information. On how to
+add CodePush to your application.
+<code>sh
+ $ cd your_client_app_dir
+ $ code-push release-react &lt;%=YourAppName%&gt; ios --deploymentName &lt;%=Staging|Production|Etc.%&gt;
+</code></p>
+<h2><a class="anchor" name="electrode-over-the-air-desktop"></a>Electrode Over the Air Desktop <a class="hash-link" href="#electrode-over-the-air-desktop">#</a></h2>
 <p>You can use either the microsoft code-push-cli or the Electrode OTA Desktop to manage your deployments.   You can get the
 install <a href="https://github.com/electrode-io/electrode-ota-desktop/releases">here</a>.</p>
-
-<h3 id="installation-1">Installation</h3>
+<h3><a class="anchor" name="installation"></a>Installation <a class="hash-link" href="#installation">#</a></h3>
 <p>Copy of the ElectrodeOTA icon to the Applications folder
- <img src="../img/electrode-ota/DMG.png" alt="OTA: DMG" /></p>
-
-<p>###Logging in
-Use the token from the pretty screen with the trees on it here.  The host would be your OTA Server.
- <img src="../img/electrode-ota/Login.png" alt="OTA: Login" /></p>
-
-<p>###Creating a New App to Manage
-You will need an app to get the deployment keys.
- <img src="../img/electrode-ota/GettingStarted.png" alt="OTA: GettingStarted" />
- <img src="../img/electrode-ota/NewAppSuccess.png" alt="OTA: New App Success" /></p>
-
-<p>###Creating a New Deployment
-You can use Staging and Development or create your own, for your workflow.
- <img src="../img/electrode-ota/NewDeployment.png" alt="OTA: New Deployment" />
- <img src="../img/electrode-ota/NewDeployment1.png" alt="OTA: New Deployment Success" /></p>
-
-<p>###Adding a New Release
-To Upload a new release select the deployment and click release.
- <img src="../img/electrode-ota/Releases.png" alt="OTA: Releases" /></p>
-
-<p>###Adding Collaborators
-If you need to share responsibility you can add collaborator.  However they will need to register <a href="#user-content-register">see</a> first to be able to add
+ <img src="../img/electrode-ota/DMG.png" alt="OTA: DMG"></p>
+<h3><a class="anchor" name="logging-in"></a>Logging in <a class="hash-link" href="#logging-in">#</a></h3>
+<p>Use the token from the pretty screen with the trees on it here.  The host would be your OTA Server.
+ <img src="../img/electrode-ota/Login.png" alt="OTA: Login"></p>
+<h3><a class="anchor" name="creating-a-new-app-to-manage"></a>Creating a New App to Manage <a class="hash-link" href="#creating-a-new-app-to-manage">#</a></h3>
+<p>You will need an app to get the deployment keys.
+ <img src="../img/electrode-ota/GettingStarted.png" alt="OTA: GettingStarted">
+ <img src="../img/electrode-ota/NewAppSuccess.png" alt="OTA: New App Success"></p>
+<h3><a class="anchor" name="creating-a-new-deployment"></a>Creating a New Deployment <a class="hash-link" href="#creating-a-new-deployment">#</a></h3>
+<p>You can use Staging and Development or create your own, for your workflow.
+ <img src="../img/electrode-ota/NewDeployment.png" alt="OTA: New Deployment">
+ <img src="../img/electrode-ota/NewDeployment1.png" alt="OTA: New Deployment Success"></p>
+<h3><a class="anchor" name="adding-a-new-release"></a>Adding a New Release <a class="hash-link" href="#adding-a-new-release">#</a></h3>
+<p>To Upload a new release select the deployment and click release.
+ <img src="../img/electrode-ota/Releases.png" alt="OTA: Releases"></p>
+<h3><a class="anchor" name="adding-collaborators"></a>Adding Collaborators <a class="hash-link" href="#adding-collaborators">#</a></h3>
+<p>If you need to share responsibility you can add collaborator.  However they will need to register <a href="#user-content-register">see</a> first to be able to add
 them to your App.
- <img src="../img/electrode-ota/Collaborate.png" alt="OTA: Collaborate" /></p>
-
-<h3 id="new-key">New Key</h3>
+ <img src="../img/electrode-ota/Collaborate.png" alt="OTA: Collaborate"></p>
+<h3><a class="anchor" name="new-key"></a>New Key <a class="hash-link" href="#new-key">#</a></h3>
 <p>If you loose key, or want one for you CI server you can manage them here.
- <img src="../img/electrode-ota/AddKey.png" alt="OTA: Add Key" />
- <img src="../img/electrode-ota/NewKey.png" alt="OTA: New Key" /></p>
+ <img src="../img/electrode-ota/AddKey.png" alt="OTA: Add Key">
+ <img src="../img/electrode-ota/NewKey.png" alt="OTA: New Key"></p>
 
 
     

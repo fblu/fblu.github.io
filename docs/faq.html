@@ -2102,98 +2102,77 @@
     <h1>FAQs</h1>
     <div class="subHeader"></div>
 
-    <p>###You Ask, We Answer:</p>
-
-<p><br /></p>
-
-<h4 id="1-is-electrode-really-being-used-to-power-walmartcom">1. Is Electrode really being used to power walmart.com?</h4>
+    <h3><a class="anchor" name="you-ask-we-answer"></a>You Ask, We Answer: <a class="hash-link" href="#you-ask-we-answer">#</a></h3>
+<p><br></p>
+<h4><a class="anchor" name="1.-is-electrode-really-being-used-to-power-walmart.com"></a>1. Is Electrode really being used to power walmart.com? <a class="hash-link" href="#1.-is-electrode-really-being-used-to-power-walmart.com">#</a></h4>
 <p>In less than one year, <a href="http://walmart.com">Walmart.com</a> has completed its migration to React/Node.js and we are proud of that accomplishment! The goal was to build a new application platform to help @WalmartLabs and its engineers scale for the future.</p>
 
 <p>As part of that migration <a href="http://www.electrode.io">Electrode</a> served as the platform for enabling the fast paced transformation. Now we have open sourced release of <a href="http://www.electrode.io">Electrode</a>, the application platform powering Walmart.com.</p>
 
-<p><br /></p>
-
-<h4 id="2-what-are-archetypes">2. What are archetypes?</h4>
-
+<p><br></p>
+<h4><a class="anchor" name="2.-what-are-archetypes"></a>2. What are archetypes? <a class="hash-link" href="#2.-what-are-archetypes">#</a></h4>
 <p>Electrode archetypes are a way for every electrode module to share common scripts, dependencies and best practices that can be updated in real time, and have that update propagate to every module that inherits from that specific archetype.
-<br />
+<br>
 Please refer to <a href="what_are_archetypes.html">what are archetypes?</a> for a detailed description of archetypes.</p>
 
-<p><br /></p>
+<p><br></p>
+<h4><a class="anchor" name="3.-why-is-my-server-throwing-error-cannot-find-module-...-on-start-up"></a>3. Why is my server throwing error &quot;cannot find module ...&quot; on start up? <a class="hash-link" href="#3.-why-is-my-server-throwing-error-cannot-find-module-...-on-start-up">#</a></h4>
+<p>Most likely you are using npm@2. Upgrade to npm@3 by running command <code>npm i -g npm@3</code> and redo <code>npm i</code>.</p>
 
-<h4 id="3-why-is-my-server-throwing-error-cannot-find-module--on-start-up">3. Why is my server throwing error “cannot find module …” on start up?</h4>
-
-<p>Most likely you are using npm@2. Upgrade to npm@3 by running command <code class="language-plaintext highlighter-rouge">npm i -g npm@3</code> and redo <code class="language-plaintext highlighter-rouge">npm i</code>.</p>
-
-<p><br /></p>
-
-<h4 id="4-what-is-the-difference-between-creating-a-new-electrode-app-using-yo-electrode-vs-cloningforking-electrode-boilerplate">4. What is the difference between creating a new electrode app using yo electrode vs cloning/forking Electrode Boilerplate?</h4>
-
-<p><a href="https://github.com/electrode-io/electrode#boilerplate-universal-react-node">Electrode Boilerplate</a> was created using <code class="language-plaintext highlighter-rouge">yo electrode</code> command. <code class="language-plaintext highlighter-rouge">yo electrode</code> gives you a bare bones Electrode Isomorphic Universal React App with NodeJS backend.</p>
+<p><br></p>
+<h4><a class="anchor" name="4.-what-is-the-difference-between-creating-a-new-electrode-app-using-yo-electrode-vs-cloningforking-electrode-boilerplate"></a>4. What is the difference between creating a new electrode app using yo electrode vs cloning/forking Electrode Boilerplate? <a class="hash-link" href="#4.-what-is-the-difference-between-creating-a-new-electrode-app-using-yo-electrode-vs-cloningforking-electrode-boilerplate">#</a></h4>
+<p><a href="https://github.com/electrode-io/electrode#boilerplate-universal-react-node">Electrode Boilerplate</a> was created using <code>yo electrode</code> command. <code>yo electrode</code> gives you a bare bones Electrode Isomorphic Universal React App with NodeJS backend.</p>
 
 <p><a href="https://github.com/electrode-io/electrode#boilerplate-universal-react-node">Electrode Boilerplate</a> includes all the bells and whistles for the SSR optimizations using the
 following modules configured and integrated for your use:</p>
 
 <ul>
-  <li><a href="https://github.com/electrode-io/electrode-confippet">Electrode Confippet</a></li>
-  <li><a href="https://github.com/electrode-io/electrode-csrf-jwt">Electrode CSRF JWT</a></li>
-  <li><a href="https://github.com/electrode-io/electrode-react-ssr-caching">Electrode React SSR Caching</a></li>
-  <li><a href="https://github.com/electrode-io/electrode-redux-router-engine">Electrode Redux Router Engine</a></li>
-  <li><a href="https://github.com/electrode-io/above-the-fold-only-server-render">Above The Fold Only Server Render</a></li>
+<li><a href="https://github.com/electrode-io/electrode-confippet">Electrode Confippet</a></li>
+<li><a href="https://github.com/electrode-io/electrode-csrf-jwt">Electrode CSRF JWT</a></li>
+<li><a href="https://github.com/electrode-io/electrode-react-ssr-caching">Electrode React SSR Caching</a></li>
+<li><a href="https://github.com/electrode-io/electrode-redux-router-engine">Electrode Redux Router Engine</a></li>
+<li><a href="https://github.com/electrode-io/above-the-fold-only-server-render">Above The Fold Only Server Render</a></li>
 </ul>
 
 <p>Head over to this amazing <a href="https://medium.com/walmartlabs/using-electrode-to-improve-react-server-side-render-performance-by-up-to-70-e43f9494eb8b#.9qjftiinq">blog</a> written by <a href="https://twitter.com/lexgrigoryan">Alex Grigoryan</a> about How Electrode improved Server Render performance by 70% using the <a href="stand_alone_modules.html">stand alone modules</a> listed above.</p>
 
-<p><br /></p>
-
-<h4 id="5-what-do-you-mean-by-reusable-electrode-components">5. What do you mean by reusable electrode components?</h4>
+<p><br></p>
+<h4><a class="anchor" name="5.-what-do-you-mean-by-reusable-electrode-components"></a>5. What do you mean by reusable electrode components? <a class="hash-link" href="#5.-what-do-you-mean-by-reusable-electrode-components">#</a></h4>
 <p>Electrode reusable components are for reusing across different apps, so they are made for being developed independently, consumed via electrode-explorer. These reusable components can take extra disk space to be able to develop &amp; run independently in the browser, but when bundled/compiled the footprint is very small.</p>
 
-<p><em>Note: If you just have one app, they probably shouldn’t follow this model and embed the components in your app directly.</em></p>
+<p><em>Note: If you just have one app, they probably shouldn&#39;t follow this model and embed the components in your app directly.</em></p>
 
-<p><br /></p>
-
-<h4 id="6-why-do-we-focus-on-universal-javascript">6. Why do we focus on Universal JavaScript?</h4>
+<p><br></p>
+<h4><a class="anchor" name="6.-why-do-we-focus-on-universal-javascript"></a>6. Why do we focus on Universal JavaScript? <a class="hash-link" href="#6.-why-do-we-focus-on-universal-javascript">#</a></h4>
 <ul>
-  <li>
-    <p>SEO - Because <a href="www.walmart.com">Walmart.com</a> is an eCommerce site, Search Engine Optimization is critical for our business model. To benefit from search indexing, SSR allows us to return an HTML string to search engines and our search analytics.</p>
-  </li>
-  <li>
-    <p>Reusability - At <a href="www.walmart.com">Walmart.com</a> we handle highly complex user interactions at an unbelievable scale. <a href="https://facebook.github.io/react/">ReactJS</a> is the chosen framework to deal with this so our developers can create reusable components that we can then run universally: on the client and the server.
-Creating modular and reusable components has helped us to share the same code across several different pages and even different brands. The shared components all have one single source of truth and are easy to read, debug and implement, so our engineers can focus on building great features to enrich user experience.</p>
-  </li>
-  <li>
-    <p>Maintainability - “<a href="https://medium.com/capital-one-developers/why-everyone-is-talking-about-isomorphic-universal-javascript-and-why-it-matters-38c07c87905#.y7cy5jki3">Code is a liability</a>”.
-Universal javascript allows developers to use modular components that are sharable, self-contained, and easy to reason about. We mentioned that we have thousands of components shared by thousand of developers at <a href="www.walmartlabs.com">WalmartLabs</a>. Creating strict best practices and tools like <a href="electrode_explorer">Electrode-Explorer</a> help us to strengthen the increase in maintainability that Universal JS gives us.</p>
-  </li>
+<li><p>SEO - Because <a href="www.walmart.com">Walmart.com</a> is an eCommerce site, Search Engine Optimization is critical for our business model. To benefit from search indexing, SSR allows us to return an HTML string to search engines and our search analytics.</p></li>
+<li><p>Reusability - At <a href="www.walmart.com">Walmart.com</a> we handle highly complex user interactions at an unbelievable scale. <a href="https://facebook.github.io/react/">ReactJS</a> is the chosen framework to deal with this so our developers can create reusable components that we can then run universally: on the client and the server.
+Creating modular and reusable components has helped us to share the same code across several different pages and even different brands. The shared components all have one single source of truth and are easy to read, debug and implement, so our engineers can focus on building great features to enrich user experience.</p></li>
+<li><p>Maintainability - &quot;<a href="https://medium.com/capital-one-developers/why-everyone-is-talking-about-isomorphic-universal-javascript-and-why-it-matters-38c07c87905#.y7cy5jki3">Code is a liability</a>&quot;.
+Universal javascript allows developers to use modular components that are sharable, self-contained, and easy to reason about. We mentioned that we have thousands of components shared by thousand of developers at <a href="www.walmartlabs.com">WalmartLabs</a>. Creating strict best practices and tools like <a href="electrode_explorer">Electrode-Explorer</a> help us to strengthen the increase in maintainability that Universal JS gives us.</p></li>
 </ul>
 
-<p><br /></p>
-
-<h4 id="7-any-plan-with-graphql-and-react-native-in-the-future-">7. Any plan with Graphql and React Native in the future ?</h4>
+<p><br></p>
+<h4><a class="anchor" name="7.-any-plan-with-graphql-and-react-native-in-the-future-"></a>7. Any plan with Graphql and React Native in the future ? <a class="hash-link" href="#7.-any-plan-with-graphql-and-react-native-in-the-future-">#</a></h4>
 <p>We have plans for GraphQL, but it’s a bit further out. Regarding React Native, we are currently investing in it as we speak. Our first RN open source piece will be released in a few weeks, sometime in mid Oct :). I’m super excited about it.</p>
 
-<p><br /></p>
-
-<h4 id="8-does-electrode-support-hot-reloading">8. Does electrode support hot reloading?</h4>
+<p><br></p>
+<h4><a class="anchor" name="8.-does-electrode-support-hot-reloading"></a>8. Does electrode support hot reloading? <a class="hash-link" href="#8.-does-electrode-support-hot-reloading">#</a></h4>
 <p>hot-reloading of jsx is already built in electrode.
-<code class="language-plaintext highlighter-rouge">gulp hot</code> will enable hot-reloading.</p>
-
-<h4 id="9-why-does-electrode-use-gulp">9. Why does Electrode use Gulp?</h4>
+<code>gulp hot</code> will enable hot-reloading.</p>
+<h4><a class="anchor" name="9.-why-does-electrode-use-gulp"></a>9. Why does Electrode use Gulp? <a class="hash-link" href="#9.-why-does-electrode-use-gulp">#</a></h4>
 <p>Initial versions of Electrode archetypes were certainly using <em>npm scripts</em> but we started running into a few problems and here are some of the brief benefits using gulp, we feel will help make it easy and simple for developers:</p>
-<h3 id="benefits">Benefits</h3>
-
+<h3><a class="anchor" name="benefits"></a>Benefits <a class="hash-link" href="#benefits">#</a></h3>
 <ul>
-  <li><strong>Maintenance</strong>: While npm scripts in package.json are simple, they are restrictive to shell commands, and can be messy to maintain since the shell commands have to go in the package.json files and separated from any extra work that requires JS code.</li>
-  <li><strong>tasks integrated in JS</strong>: When we turn these scripts into JS files, we get the full benefits of writing any JS code as part of the build task.  We no longer have to write JS scripts and then invoke them from npm scripts.</li>
-  <li><strong>Gulp features</strong>: By using gulp, we get to use other gulp features, particularly the streaming feature, and if we could explore use cases that can benefit.</li>
-  <li><strong>Community</strong>: npm scripts are generally for simple tasks, and for more complicate build tasks, the community is more a tune to a JS task runner such as grunt and gulp.  Gulp being code centric vs grunt’s config centric, has been gaining ground fast with a thriving supporting community.  So going to gulp will be more familiar to the developer community.</li>
-  <li><strong>Compatibility</strong>: At the moment our build tasks being shell scripts some are only compatible for Unix.  If we go with tasks written in JS it’s easier to make them compatible on other OS such as Windows.</li>
-  <li><strong>Resource</strong>: With a large community behind gulp, there are a lot of plugins in the open source community for supporting various common build tasks and we can utilize them.</li>
+<li><strong>Maintenance</strong>: While npm scripts in package.json are simple, they are restrictive to shell commands, and can be messy to maintain since the shell commands have to go in the package.json files and separated from any extra work that requires JS code.</li>
+<li><strong>tasks integrated in JS</strong>: When we turn these scripts into JS files, we get the full benefits of writing any JS code as part of the build task.  We no longer have to write JS scripts and then invoke them from npm scripts.</li>
+<li><strong>Gulp features</strong>: By using gulp, we get to use other gulp features, particularly the streaming feature, and if we could explore use cases that can benefit.</li>
+<li><strong>Community</strong>: npm scripts are generally for simple tasks, and for more complicate build tasks, the community is more a tune to a JS task runner such as grunt and gulp.  Gulp being code centric vs grunt&#39;s config centric, has been gaining ground fast with a thriving supporting community.  So going to gulp will be more familiar to the developer community.</li>
+<li><strong>Compatibility</strong>: At the moment our build tasks being shell scripts some are only compatible for Unix.  If we go with tasks written in JS it&#39;s easier to make them compatible on other OS such as Windows.</li>
+<li><strong>Resource</strong>: With a large community behind gulp, there are a lot of plugins in the open source community for supporting various common build tasks and we can utilize them.</li>
 </ul>
 
 <p>gulp scripts can still be wrapped in <strong>npm scripts</strong> here is an example of using using npm scripts to execute JS tasks in the archetype: https://github.com/electrode-io/electrode/blob/d4142ee0c938cbf973a429ee8467052aa4e1c9be/samples/universal-react-node/package.json#L22-L29</p>
-
 
 
     
